@@ -1,0 +1,25 @@
+fn test
+   ;; store argument 1 as max
+   set max $1
+   set i 0
+
+   ;; return iterator
+   return fn iterator
+
+      ;; update counter
+      set i i+1
+      if i <= max
+         return i
+      end
+
+      ;; return false when done
+      return false
+   end
+end
+
+;; create a
+set counter test(2)
+
+loop counter
+   "iteration: " this nl
+end

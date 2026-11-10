@@ -1,0 +1,4 @@
+
+loop range(10)
+   this nl
+end

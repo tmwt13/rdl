@@ -1,0 +1,24 @@
+   fn foo
+      set A range(3)
+      set a 0
+      set B range(3)
+      return fn
+         set b B()
+         if b == null
+            set a A()
+            if a == null
+               return null
+            end
+            set B range(3) 
+            set b B()
+         end
+         return b
+      end
+   end
+
+'Liste: ' nl
+loop foo 
+   this ', ' 
+end
+
+'END'

@@ -1,0 +1,8 @@
+= Accounts
+
+#table(
+   {{loop range(4)}}
+      [{{this}}],
+   {{end}}
+)
+

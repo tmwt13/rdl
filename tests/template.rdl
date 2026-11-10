@@ -1,0 +1,7 @@
+<html> 
+   {{ loop range(5) }}
+      <div>
+         {{ this }}
+      </div>
+   {{ end }}
+</html>
