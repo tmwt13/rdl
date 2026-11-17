@@ -1,0 +1,554 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ALLOC	src/rdl_eval.c	/^#define ALLOC /;"	d	file:
+ARRAY_LEN	src/rdlTest.c	/^#define ARRAY_LEN(/;"	d	file:
+BINOP	src/rdl_eval.c	/^#define BINOP(/;"	d	file:
+Bp	src/rdl_compile.c	/^} Bp; \/\/ Binding-Power$/;"	t	typeref:struct:__anon29	file:
+CALL_PROLOG_SIZE	include/rdl.h	/^#define CALL_PROLOG_SIZE /;"	d
+ENTRY_KEY	include/rdl.h	/^#define ENTRY_KEY(/;"	d
+ERROR	include/da.h	/^#define ERROR(/;"	d
+Error	include/da.h	/^typedef int Error;$/;"	t
+FOBJ_FREE	include/rdl.h	/^#define FOBJ_FREE /;"	d
+FOBJ_USED	include/rdl.h	/^#define FOBJ_USED /;"	d
+FnState	src/rdl_compile.c	/^struct FnState {$/;"	s	file:
+HT_ASSERT	include/ht.h	/^    #define HT_ASSERT /;"	d
+HT_EQ	include/ht.h	/^    HT_EQ,$/;"	e	enum:__anon25
+HT_FREE	include/ht.h	/^    #define HT_FREE /;"	d
+HT_HASH	include/ht.h	/^    HT_HASH,$/;"	e	enum:__anon25
+HT_H_	include/ht.h	/^#define HT_H_$/;"	d
+HT_IMPLEMENTATION	src/parser.c	/^#define HT_IMPLEMENTATION$/;"	d	file:
+HT_IMPLEMENTATION	src/rdl.c	/^#define HT_IMPLEMENTATION$/;"	d	file:
+HT_IMPLEMENTATION	src/rdlTest.c	/^#define HT_IMPLEMENTATION$/;"	d	file:
+HT_IMPLEMENTATION	src/rdl_compile.c	/^#define HT_IMPLEMENTATION$/;"	d	file:
+HT_IMPLEMENTATION	src/rdl_eval.c	/^#define HT_IMPLEMENTATION$/;"	d	file:
+HT_IMPLEMENTATION	src/rdl_natives.c	/^#define HT_IMPLEMENTATION$/;"	d	file:
+HT_IMPLEMENTATION_DONE_	include/ht.h	/^#define HT_IMPLEMENTATION_DONE_$/;"	d
+HT_MALLOC	include/ht.h	/^    #define HT_MALLOC /;"	d
+HT_PUBDEF	include/ht.h	/^        #define HT_PUBDEF /;"	d
+HT_PUBDEF	src/parser.c	/^#define HT_PUBDEF /;"	d	file:
+HT_PUBDEF	src/rdl.c	/^#define HT_PUBDEF /;"	d	file:
+HT_PUBDEF	src/rdlTest.c	/^#define HT_PUBDEF /;"	d	file:
+HT_PUBDEF	src/rdl_compile.c	/^#define HT_PUBDEF /;"	d	file:
+HT_PUBDEF	src/rdl_eval.c	/^#define HT_PUBDEF /;"	d	file:
+HT_PUBDEF	src/rdl_natives.c	/^#define HT_PUBDEF /;"	d	file:
+HT__CLIT	include/ht.h	/^    #define HT__CLIT(/;"	d
+HT__DELETED	include/ht.h	/^    HT__DELETED,$/;"	e	enum:__anon28
+HT__EMPTY	include/ht.h	/^    HT__EMPTY = 0,$/;"	e	enum:__anon28
+HT__FIRST_VALID_HASH	include/ht.h	/^    HT__FIRST_VALID_HASH,$/;"	e	enum:__anon28
+HT__LOAD_FACTOR_PERCENT	include/ht.h	/^#define HT__LOAD_FACTOR_PERCENT /;"	d
+HT__MIN_CAP	include/ht.h	/^#define HT__MIN_CAP /;"	d
+Ht	include/ht.h	/^#define Ht(/;"	d
+Ht_Hasheq	include/ht.h	/^typedef uintptr_t (*Ht_Hasheq)(Ht_Op op, void const *a, void const *b, size_t n);$/;"	t
+Ht_Op	include/ht.h	/^} Ht_Op;$/;"	t	typeref:enum:__anon25
+Ht__Abstract	include/ht.h	/^} Ht__Abstract;$/;"	t	typeref:struct:__anon27
+Ht__Layout	include/ht.h	/^} Ht__Layout;$/;"	t	typeref:struct:__anon26
+INFO	include/da.h	/^#define INFO(/;"	d
+KEYWORD	include/parser.h	/^} KEYWORD;$/;"	t	typeref:enum:__anon4
+KEYWORD_END	include/parser.h	/^	KEYWORD_END, $/;"	e	enum:__anon4
+KEYWORD_FALSE	include/parser.h	/^   KEYWORD_FALSE,$/;"	e	enum:__anon4
+KEYWORD_FN	include/parser.h	/^   KEYWORD_FN, $/;"	e	enum:__anon4
+KEYWORD_IF	include/parser.h	/^   KEYWORD_IF, $/;"	e	enum:__anon4
+KEYWORD_LOOP	include/parser.h	/^   KEYWORD_LOOP, $/;"	e	enum:__anon4
+KEYWORD_NOT	include/parser.h	/^   KEYWORD_NOT,$/;"	e	enum:__anon4
+KEYWORD_NULL	include/parser.h	/^   KEYWORD_NULL, $/;"	e	enum:__anon4
+KEYWORD_RETURN	include/parser.h	/^   KEYWORD_RETURN, $/;"	e	enum:__anon4
+KEYWORD_SET	include/parser.h	/^   KEYWORD_SET, $/;"	e	enum:__anon4
+KEYWORD_THIS	include/parser.h	/^   KEYWORD_THIS, $/;"	e	enum:__anon4
+KEYWORD_VAR	include/parser.h	/^   KEYWORD_VAR, $/;"	e	enum:__anon4
+KEYWORD_WHERE	include/parser.h	/^   KEYWORD_WHERE, $/;"	e	enum:__anon4
+KEYWORD_WITH	include/parser.h	/^   KEYWORD_WITH, $/;"	e	enum:__anon4
+Keywords	src/parser.c	/^typedef Ht(const char *, KEYWORD) Keywords;$/;"	t	file:
+LEND	src/parser.c	/^#define LEND(/;"	d	file:
+LSTART	src/parser.c	/^#define LSTART(/;"	d	file:
+Lexer	include/lexer.h	/^} Lexer;$/;"	t	typeref:struct:__anon6
+MAX_OBJECTS	include/rdl.h	/^#define MAX_OBJECTS /;"	d
+MAX_OPERATION_STACK	src/rdl.c	/^#define MAX_OPERATION_STACK /;"	d	file:
+MAX_VARIABLES	include/rdl.h	/^#define MAX_VARIABLES /;"	d
+OBJ_CLOSURE	include/rdl.h	/^      OBJ_INSTANCE, OBJ_METHOD, OBJ_TEXT, OBJ_LIST, OBJ_CLOSURE,$/;"	e	enum:Object::__anon11
+OBJ_INSTANCE	include/rdl.h	/^      OBJ_INSTANCE, OBJ_METHOD, OBJ_TEXT, OBJ_LIST, OBJ_CLOSURE,$/;"	e	enum:Object::__anon11
+OBJ_LIST	include/rdl.h	/^      OBJ_INSTANCE, OBJ_METHOD, OBJ_TEXT, OBJ_LIST, OBJ_CLOSURE,$/;"	e	enum:Object::__anon11
+OBJ_METHOD	include/rdl.h	/^      OBJ_INSTANCE, OBJ_METHOD, OBJ_TEXT, OBJ_LIST, OBJ_CLOSURE,$/;"	e	enum:Object::__anon11
+OBJ_TEXT	include/rdl.h	/^      OBJ_INSTANCE, OBJ_METHOD, OBJ_TEXT, OBJ_LIST, OBJ_CLOSURE,$/;"	e	enum:Object::__anon11
+OPCODE	include/rdl.h	/^} OPCODE;$/;"	t	typeref:enum:__anon7
+OP_PUSH	src/rdl_compile.c	/^#define OP_PUSH(/;"	d	file:
+Object	include/rdl.h	/^struct Object {$/;"	s
+Object	include/rdl.h	/^typedef struct Object Object;$/;"	t	typeref:struct:Object
+OpADD	include/rdl.h	/^   OpADD,$/;"	e	enum:__anon7
+OpCALL	include/rdl.h	/^   OpCALL,     \/\/ $/;"	e	enum:__anon7
+OpCLOSURE	include/rdl.h	/^   OpCLOSURE,  \/\/ build a closure for the fn body at as.ptr; followed by one OpUPDESC per captured variable$/;"	e	enum:__anon7
+OpCONDJMP	include/rdl.h	/^   OpCONDJMP,  \/\/ POP and evtl. JMP$/;"	e	enum:__anon7
+OpCTX	include/rdl.h	/^   OpCTX,      \/\/ PUSH ctx $/;"	e	enum:__anon7
+OpCTXPOP	include/rdl.h	/^   OpCTXPOP,   \/\/ PUSH ctx and pop it$/;"	e	enum:__anon7
+OpCTXPUSH	include/rdl.h	/^   OpCTXPUSH,  \/\/ POP and push to ctx$/;"	e	enum:__anon7
+OpDIV	include/rdl.h	/^   OpDIV,$/;"	e	enum:__anon7
+OpDOLAR	include/rdl.h	/^   OpDOLAR,    \/\/ POP idx PUSH value$/;"	e	enum:__anon7
+OpDOT	include/rdl.h	/^   OpDOT,      \/\/ pop receiver, combine with the method\/field name baked into this op (as.text) -> push fn, push receiver$/;"	e	enum:__anon7
+OpDUP	include/rdl.h	/^   OpDUP,      \/\/ PUSH last element again$/;"	e	enum:__anon7
+OpECHO	include/rdl.h	/^   OpECHO,     \/\/ pop+echo top of stack, but only if something sits above the locals (as.idx = #slots owned by the compiler)$/;"	e	enum:__anon7
+OpEGT	include/rdl.h	/^   OpEGT,$/;"	e	enum:__anon7
+OpELT	include/rdl.h	/^   OpELT,$/;"	e	enum:__anon7
+OpEQ	include/rdl.h	/^   OpEQ,$/;"	e	enum:__anon7
+OpERROR	include/rdl.h	/^   OpERROR,    \/\/ Abort program$/;"	e	enum:__anon7
+OpFN	include/rdl.h	/^   OpFN,       \/\/ PUSH old bp + pc  (sets new call frame)$/;"	e	enum:__anon7
+OpGETLOCAL	include/rdl.h	/^   OpGETLOCAL,   \/\/ PUSH var value$/;"	e	enum:__anon7
+OpGETVAR	include/rdl.h	/^   OpGETVAR,   \/\/ PUSH var value$/;"	e	enum:__anon7
+OpGT	include/rdl.h	/^   OpGT,$/;"	e	enum:__anon7
+OpIDENT	include/rdl.h	/^   OpIDENT,    \/\/ PUSH ident$/;"	e	enum:__anon7
+OpJMP	include/rdl.h	/^   OpJMP,      \/\/ JMP to idx (pc)$/;"	e	enum:__anon7
+OpLT	include/rdl.h	/^   OpLT,$/;"	e	enum:__anon7
+OpMULT	include/rdl.h	/^   OpMULT,$/;"	e	enum:__anon7
+OpNOT	include/rdl.h	/^   OpNOT,$/;"	e	enum:__anon7
+OpNULL	include/rdl.h	/^   OpNULL,     \/\/ PUSH null$/;"	e	enum:__anon7
+OpNUM	include/rdl.h	/^   OpNUM,      \/\/ PUSH num$/;"	e	enum:__anon7
+OpPOP	include/rdl.h	/^   OpPOP,      \/\/ POP last value$/;"	e	enum:__anon7
+OpPOPA	include/rdl.h	/^   OpPOPA,$/;"	e	enum:__anon7
+OpPOPIDX	include/rdl.h	/^   OpPOPIDX,   \/\/ POP value to idx$/;"	e	enum:__anon7
+OpPUSHA	include/rdl.h	/^   OpPUSHA,$/;"	e	enum:__anon7
+OpPUSHIDX	include/rdl.h	/^   OpPUSHIDX,  \/\/ PUSH value form idx$/;"	e	enum:__anon7
+OpPUSHREL	include/rdl.h	/^   OpPUSHREL,  \/\/ PUSH rel to bp$/;"	e	enum:__anon7
+OpRET	include/rdl.h	/^   OpRET,      \/\/ pop to bp and push result$/;"	e	enum:__anon7
+OpSETLOCAL	include/rdl.h	/^   OpSETLOCAL,   \/\/ pop name and register fn$/;"	e	enum:__anon7
+OpSETVAR	include/rdl.h	/^   OpSETVAR,   \/\/ pop name and register fn$/;"	e	enum:__anon7
+OpSUB	include/rdl.h	/^   OpSUB,$/;"	e	enum:__anon7
+OpSWAP	include/rdl.h	/^   OpSWAP,     \/\/ swap the top two values$/;"	e	enum:__anon7
+OpTXT	include/rdl.h	/^   OpTXT,      \/\/ PUSH text$/;"	e	enum:__anon7
+Operation	include/rdl.h	/^} Operation;$/;"	t	typeref:struct:__anon8
+OperationStack	include/rdl.h	/^} OperationStack;$/;"	t	typeref:struct:__anon10
+POP	src/rdl.c	/^#define POP(/;"	d	file:
+PRE1	src/rdl_compile.c	/^#define PRE1 /;"	d	file:
+PRE2	src/rdl_compile.c	/^#define PRE2 /;"	d	file:
+PUSH	src/rdl.c	/^#define PUSH(/;"	d	file:
+PUSHES_VALUES	src/rdl_eval.c	/^#define PUSHES_VALUES(/;"	d	file:
+RANGE_CUR	src/rdl_natives.c	/^enum { RANGE_CUR, RANGE_MAX, RANGE_UPVALUES };$/;"	e	enum:__anon32	file:
+RANGE_MAX	src/rdl_natives.c	/^enum { RANGE_CUR, RANGE_MAX, RANGE_UPVALUES };$/;"	e	enum:__anon32	file:
+RANGE_UPVALUES	src/rdl_natives.c	/^enum { RANGE_CUR, RANGE_MAX, RANGE_UPVALUES };$/;"	e	enum:__anon32	file:
+RDL_DDD_D	include/rdl.h	/^	RDL_DDD_D,$/;"	e	enum:__anon18
+RDL_DD_D	include/rdl.h	/^	RDL_DD_D,    \/\/ fn ist double(*)(double,double):   slot[0] = fn(slot[arg_base], slot[arg_base+1])$/;"	e	enum:__anon18
+RDL_D_D	include/rdl.h	/^	RDL_D_D,     \/\/ fn ist double(*)(double):          slot[0] = fn(slot[arg_base])$/;"	e	enum:__anon18
+RDL_D_V	include/rdl.h	/^	RDL_D_V,     \/\/ fn ist double(*)(double):          slot[0] = fn(slot[arg_base])$/;"	e	enum:__anon18
+RDL_ERROR	include/rdl.h	/^	RDL_ERROR = 0,$/;"	e	enum:__anon18
+RDL_I_D	include/rdl.h	/^	RDL_I_D,$/;"	e	enum:__anon18
+RDL_I_S	include/rdl.h	/^	RDL_I_S,$/;"	e	enum:__anon18
+RDL_RAW	include/rdl.h	/^	RDL_RAW,     \/\/ fn ist ein vollständiger RdlCallback: fn(vm) wird 1:1 aufgerufen$/;"	e	enum:__anon18
+RDL_STACK	include/rdl.h	/^	RDL_STACK,     $/;"	e	enum:__anon18
+RDL_VM_V	include/rdl.h	/^	RDL_VM_V,$/;"	e	enum:__anon18
+RDL_V_V	include/rdl.h	/^	RDL_V_V,$/;"	e	enum:__anon18
+REQUIRES_ARGS	src/rdl_eval.c	/^#define REQUIRES_ARGS(/;"	d	file:
+RESTORE	src/rdl_eval.c	/^#define RESTORE(/;"	d	file:
+RESULT_CHAR	include/rdl.h	/^      RESULT_CHAR,$/;"	e	enum:Result::__anon21
+RESULT_ERROR	include/rdl.h	/^		RESULT_ERROR, RESULT_NUMBER, RESULT_NULL,$/;"	e	enum:Result::__anon21
+RESULT_FUNCTION	include/rdl.h	/^      RESULT_FUNCTION,$/;"	e	enum:Result::__anon21
+RESULT_INT	include/rdl.h	/^		RESULT_INT,$/;"	e	enum:Result::__anon21
+RESULT_NULL	include/rdl.h	/^		RESULT_ERROR, RESULT_NUMBER, RESULT_NULL,$/;"	e	enum:Result::__anon21
+RESULT_NUMBER	include/rdl.h	/^		RESULT_ERROR, RESULT_NUMBER, RESULT_NULL,$/;"	e	enum:Result::__anon21
+RESULT_OBJECT	include/rdl.h	/^      RESULT_OBJECT,$/;"	e	enum:Result::__anon21
+RESULT_VOID	include/rdl.h	/^		RESULT_VOID,$/;"	e	enum:Result::__anon21
+RdlBindings	include/rdl.h	/^typedef Ht(char *, RdlNativeEntry) RdlBindings;$/;"	t
+RdlCallback	include/rdl.h	/^typedef void (*RdlCallback)(RdlVM *vm);$/;"	t
+RdlNativeEntry	include/rdl.h	/^} RdlNativeEntry;$/;"	t	typeref:struct:__anon19
+RdlNativeKind	include/rdl.h	/^} RdlNativeKind;$/;"	t	typeref:enum:__anon18
+RdlVM	include/rdl.h	/^struct RdlVM{$/;"	s
+RdlVM	include/rdl.h	/^typedef struct RdlVM RdlVM;$/;"	t	typeref:struct:RdlVM
+Result	include/rdl.h	/^struct Result {$/;"	s
+Result	include/rdl.h	/^typedef struct Result Result; $/;"	t	typeref:struct:Result
+SLOT_GET	include/rdl.h	/^#define SLOT_GET(/;"	d
+STF_H_	include/da.h	/^#define STF_H_$/;"	d
+STF_IMPLEMENTATION	src/rdlTest.c	/^#define STF_IMPLEMENTATION$/;"	d	file:
+STF_IS_WHITESPACE	include/da.h	/^#define STF_IS_WHITESPACE(/;"	d
+STF_TEMP_BUFFER_SIZE	include/da.h	/^#define STF_TEMP_BUFFER_SIZE /;"	d
+STORE	src/rdl_eval.c	/^#define STORE(/;"	d	file:
+SVLIT	include/da.h	/^#define SVLIT(/;"	d
+SV_Args	include/da.h	/^#define SV_Args(/;"	d
+SV_Fmt	include/da.h	/^#define SV_Fmt /;"	d
+StringBuffer	include/da.h	/^} StringBuffer;$/;"	t	typeref:struct:__anon1
+StringView	include/da.h	/^} StringView;$/;"	t	typeref:struct:__anon2
+TEMPLATE_NONE	src/lexer.c	/^   TEMPLATE_NONE,$/;"	e	enum:__anon31	file:
+TEMPLATE_NONE	src/parser.c	/^   TEMPLATE_NONE,$/;"	e	enum:__anon33	file:
+TEMPLATE_RDL	src/lexer.c	/^   TEMPLATE_RDL,$/;"	e	enum:__anon31	file:
+TEMPLATE_RDL	src/parser.c	/^   TEMPLATE_RDL,$/;"	e	enum:__anon33	file:
+TEMPLATE_TEXT	src/lexer.c	/^   TEMPLATE_TEXT,$/;"	e	enum:__anon31	file:
+TEMPLATE_TEXT	src/parser.c	/^   TEMPLATE_TEXT,$/;"	e	enum:__anon33	file:
+TODO	include/da.h	/^#define TODO(/;"	d
+TOKEN_ADD	include/parser.h	/^  TOKEN_ADD,$/;"	e	enum:__anon3
+TOKEN_AND	include/parser.h	/^  TOKEN_AND,$/;"	e	enum:__anon3
+TOKEN_ASSIGN	include/parser.h	/^  TOKEN_ASSIGN,$/;"	e	enum:__anon3
+TOKEN_AT	include/parser.h	/^  TOKEN_AT,$/;"	e	enum:__anon3
+TOKEN_COMMA	include/parser.h	/^  TOKEN_COMMA,$/;"	e	enum:__anon3
+TOKEN_DDOT	include/parser.h	/^  TOKEN_DDOT,$/;"	e	enum:__anon3
+TOKEN_DIV	include/parser.h	/^  TOKEN_DIV,$/;"	e	enum:__anon3
+TOKEN_DOLAR	include/parser.h	/^  TOKEN_DOLAR,$/;"	e	enum:__anon3
+TOKEN_DOT	include/parser.h	/^  TOKEN_DOT,$/;"	e	enum:__anon3
+TOKEN_END	include/parser.h	/^  TOKEN_END,$/;"	e	enum:__anon3
+TOKEN_EOF	include/parser.h	/^  TOKEN_EOF,$/;"	e	enum:__anon3
+TOKEN_EQ	include/parser.h	/^  TOKEN_EQ,$/;"	e	enum:__anon3
+TOKEN_ERROR	include/parser.h	/^  TOKEN_ERROR = 0,$/;"	e	enum:__anon3
+TOKEN_GE	include/parser.h	/^  TOKEN_GE,$/;"	e	enum:__anon3
+TOKEN_GT	include/parser.h	/^  TOKEN_GT,$/;"	e	enum:__anon3
+TOKEN_IDENT	include/parser.h	/^  TOKEN_IDENT,$/;"	e	enum:__anon3
+TOKEN_KEYWORD	include/parser.h	/^  TOKEN_KEYWORD,$/;"	e	enum:__anon3
+TOKEN_KIND	include/parser.h	/^} TOKEN_KIND;$/;"	t	typeref:enum:__anon3
+TOKEN_LE	include/parser.h	/^  TOKEN_LE,$/;"	e	enum:__anon3
+TOKEN_LT	include/parser.h	/^  TOKEN_LT,$/;"	e	enum:__anon3
+TOKEN_MOD	include/parser.h	/^  TOKEN_MOD,$/;"	e	enum:__anon3
+TOKEN_MULT	include/parser.h	/^  TOKEN_MULT,$/;"	e	enum:__anon3
+TOKEN_NLINE	include/parser.h	/^  TOKEN_NLINE,$/;"	e	enum:__anon3
+TOKEN_NOT	include/parser.h	/^  TOKEN_NOT,$/;"	e	enum:__anon3
+TOKEN_NUMBER	include/parser.h	/^  TOKEN_NUMBER,$/;"	e	enum:__anon3
+TOKEN_OP_BEGIN	include/parser.h	/^  TOKEN_OP_BEGIN,$/;"	e	enum:__anon3
+TOKEN_OP_END	include/parser.h	/^  TOKEN_OP_END,$/;"	e	enum:__anon3
+TOKEN_OR	include/parser.h	/^  TOKEN_OR,$/;"	e	enum:__anon3
+TOKEN_PCLOSE	include/parser.h	/^  TOKEN_PCLOSE,$/;"	e	enum:__anon3
+TOKEN_PDOT	include/parser.h	/^  TOKEN_PDOT,$/;"	e	enum:__anon3
+TOKEN_PERCENT	include/parser.h	/^  TOKEN_PERCENT,$/;"	e	enum:__anon3
+TOKEN_PIPE	include/parser.h	/^  TOKEN_PIPE,$/;"	e	enum:__anon3
+TOKEN_POPEN	include/parser.h	/^  TOKEN_POPEN,$/;"	e	enum:__anon3
+TOKEN_QMARK	include/parser.h	/^  TOKEN_QMARK,$/;"	e	enum:__anon3
+TOKEN_SEMI	include/parser.h	/^  TOKEN_SEMI,$/;"	e	enum:__anon3
+TOKEN_SUB	include/parser.h	/^  TOKEN_SUB,$/;"	e	enum:__anon3
+TOKEN_TEXT	include/parser.h	/^  TOKEN_TEXT,$/;"	e	enum:__anon3
+TOKEN_VOID	include/parser.h	/^  TOKEN_VOID,$/;"	e	enum:__anon3
+TOKEN_WHERE	include/parser.h	/^  TOKEN_WHERE,$/;"	e	enum:__anon3
+TOKEN_WITH	include/parser.h	/^  TOKEN_WITH,$/;"	e	enum:__anon3
+Token	include/parser.h	/^struct Token{$/;"	s
+Token	include/parser.h	/^typedef struct Token Token;$/;"	t	typeref:struct:Token
+UNREACHABLE	include/da.h	/^#define UNREACHABLE(/;"	d
+Upvalue	include/rdl.h	/^struct Upvalue {$/;"	s
+Upvalue	include/rdl.h	/^typedef struct Upvalue Upvalue;$/;"	t	typeref:struct:Upvalue
+VariableItem	include/rdl.h	/^struct VariableItem{$/;"	s
+VariableItem	include/rdl.h	/^typedef struct VariableItem VariableItem;$/;"	t	typeref:struct:VariableItem
+_CUST_LEX	include/lexer.h	/^#define _CUST_LEX$/;"	d
+_RDL_H	include/rdl.h	/^#define _RDL_H$/;"	d
+_get_entry	src/rdl_eval.c	/^RdlNativeEntry *_get_entry(RdlVM *vm, const char *class_name, const char *signature){$/;"	f
+_global_object	src/rdl.c	/^Object _global_object = {$/;"	v
+_invoke_native	src/rdl_eval.c	/^void _invoke_native(RdlVM *vm, const RdlNativeEntry *e) {$/;"	f
+_operations	src/rdl.c	/^static Operation _operations[MAX_OPERATION_STACK];$/;"	v	file:
+ab	include/rdl.h	/^   int ab;                 \/\/ args base$/;"	m	struct:RdlVM
+activate_template_mode	src/lexer.c	/^void activate_template_mode(){$/;"	f
+arg_base	include/rdl.h	/^   int           arg_base;    \/\/ 0 = Receiver ist der Operand (Methodenaufruf), 1 = erstes explizites Arg (freier Aufruf)$/;"	m	struct:__anon19
+as	include/rdl.h	/^   } as;$/;"	m	struct:Object	typeref:union:Object::__anon12
+as	include/rdl.h	/^   } as;$/;"	m	struct:__anon19	typeref:union:__anon19::__anon20
+as	include/rdl.h	/^   } as;$/;"	m	struct:__anon8	typeref:union:__anon8::__anon9
+bindings	include/rdl.h	/^	RdlBindings bindings;$/;"	m	struct:RdlVM
+bp	include/rdl.h	/^   int bp;                 \/\/ base pointer$/;"	m	struct:RdlVM
+build_native	build.sh	/^build_native() {$/;"	f
+build_tags	build.sh	/^build_tags() {$/;"	f
+buildclosure	src/rdl_eval.c	/^Result buildclosure(RdlVM *vm, offset_t start, int up_count){$/;"	f
+buildinstance	src/rdl_eval.c	/^Result buildinstance(RdlVM *vm, const char *class_name, int size){$/;"	f
+buildmethod	src/rdl_eval.c	/^Result buildmethod(RdlVM *vm, const char *class_name, const char *method_name){$/;"	f
+buildstring	src/rdl_eval.c	/^Result buildstring(RdlVM *vm, const char *cc){$/;"	f
+capacity	include/da.h	/^  int count, capacity;$/;"	m	struct:__anon1
+capacity	include/rdl.h	/^		int count, capacity;$/;"	m	struct:RdlVM::__anon24
+capacity	include/rdl.h	/^	int capacity;$/;"	m	struct:RdlVM
+capacity	include/rdl.h	/^         u8 count, capacity;$/;"	m	struct:Object::__anon12::__anon16
+capacity	include/rdl.h	/^   size_t count, capacity;$/;"	m	struct:__anon10
+capture_upvalue	src/rdl_eval.c	/^static Upvalue *capture_upvalue(RdlVM *vm, int slot){$/;"	f	file:
+cc	include/rdl.h	/^         char * cc;$/;"	m	struct:Object::__anon12::__anon13
+chr	include/rdl.h	/^      char           chr;$/;"	m	union:Result::__anon22
+cl	include/rdl.h	/^   Result cl;              \/\/ running closure (NULL for plain fns), source of OpGETUP\/OpSETUP$/;"	m	struct:RdlVM
+class_name	include/rdl.h	/^   char * class_name;$/;"	m	struct:Object
+class_name	include/rdl.h	/^   const char   *class_name;$/;"	m	struct:__anon19
+close_upvalues	src/rdl_eval.c	/^static void close_upvalues(RdlVM *vm, int from){$/;"	f	file:
+closed	include/rdl.h	/^   Result closed;       \/\/ closed: the value lives here$/;"	m	struct:Upvalue
+closure	include/rdl.h	/^      } closure;$/;"	m	union:Object::__anon12	typeref:struct:Object::__anon12::__anon17
+collectgarbage	src/rdl_eval.c	/^void collectgarbage(RdlVM *vm){$/;"	f
+command	src/rdlTest.c	/^struct command {$/;"	s	file:
+command_print_usage	src/rdlTest.c	/^void command_print_usage(FILE *fd, struct command *cmd)$/;"	f
+commands	src/rdlTest.c	/^static struct command commands[] = {$/;"	v	typeref:struct:command	file:
+compile	src/rdl_compile.c	/^bool compile(RdlVM *vm, Lexer *L, OperationStack *stack){$/;"	f
+compile_args	src/rdl_compile.c	/^bool compile_args(RdlVM *vm, Lexer *L, OperationStack *stack){$/;"	f
+compile_call	src/rdl_compile.c	/^void compile_call(RdlVM *vm, Lexer *L, OperationStack *stack){$/;"	f
+compile_dot_call	src/rdl_compile.c	/^void compile_dot_call(RdlVM *vm, Lexer *L, OperationStack *stack, Token name){$/;"	f
+compile_fn	src/rdl_compile.c	/^bool compile_fn(RdlVM *vm, Lexer *L, OperationStack *stack){$/;"	f
+compile_fn_end	src/rdl_compile.c	/^static void compile_fn_end(OperationStack *stack){$/;"	f	file:
+compile_fn_global	src/rdl_compile.c	/^bool compile_fn_global(RdlVM *vm, Lexer *L, OperationStack *stack){$/;"	f
+compile_if	src/rdl_compile.c	/^bool compile_if(RdlVM *vm, Lexer *L, OperationStack *stack){$/;"	f
+compile_loop	src/rdl_compile.c	/^bool compile_loop(RdlVM *vm, Lexer *L, OperationStack *stack){$/;"	f
+compile_reset	src/rdl_compile.c	/^void compile_reset(void){$/;"	f
+compile_set	src/rdl_compile.c	/^bool compile_set(RdlVM *vm, Lexer *L, OperationStack *stack){$/;"	f
+compile_with	src/rdl_compile.c	/^bool compile_with(RdlVM *vm, Lexer *L, OperationStack *stack){$/;"	f
+context	include/rdl.h	/^	} context;$/;"	m	struct:RdlVM	typeref:struct:RdlVM::__anon24
+count	include/da.h	/^  int count, capacity;$/;"	m	struct:__anon1
+count	include/da.h	/^  int count;$/;"	m	struct:__anon2
+count	include/ht.h	/^    size_t      count;$/;"	m	struct:__anon27
+count	include/rdl.h	/^		int count, capacity;$/;"	m	struct:RdlVM::__anon24
+count	include/rdl.h	/^		int count;$/;"	m	union:RdlVM::__anon23
+count	include/rdl.h	/^         int count;$/;"	m	struct:Object::__anon12::__anon17
+count	include/rdl.h	/^         u8 count, capacity;$/;"	m	struct:Object::__anon12::__anon16
+count	include/rdl.h	/^   size_t count, capacity;$/;"	m	struct:__anon10
+count	src/rdl_compile.c	/^      int count;$/;"	m	struct:FnState::__anon30	file:
+data	include/da.h	/^  char *data;$/;"	m	struct:__anon1
+data	include/da.h	/^  const char *data;$/;"	m	struct:__anon2
+data	include/rdl.h	/^		Result *data;$/;"	m	struct:RdlVM::__anon24
+data	include/rdl.h	/^	Result *data;$/;"	m	struct:RdlVM
+data	include/rdl.h	/^         Result *data;$/;"	m	struct:Object::__anon12::__anon16
+data	include/rdl.h	/^         void *		   data;$/;"	m	struct:Object::__anon12::__anon14
+data	include/rdl.h	/^   Operation *data;$/;"	m	struct:__anon10
+data	src/rdl_compile.c	/^      struct variable data[10];$/;"	m	struct:FnState::__anon30	typeref:struct:FnState::__anon30::variable	file:
+debug_jit	include/rdl.h	/^	bool debug_jit;$/;"	m	struct:RdlVM
+declare_local	src/rdl_compile.c	/^static void declare_local(const char *name)$/;"	f	file:
+default_value	include/ht.h	/^    uint8_t     default_value;$/;"	m	struct:__anon27
+description	src/rdlTest.c	/^   const char *const description;$/;"	m	struct:command	file:
+eat	src/lexer.c	/^Token eat(Lexer *L) {$/;"	f
+echo_fn	include/rdl.h	/^	void (*echo_fn)(Result);$/;"	m	struct:RdlVM
+entry	include/rdl.h	/^      RdlNativeEntry *entry;$/;"	m	union:Result::__anon22
+error_code	include/rdl.h	/^      int 		      error_code;$/;"	m	union:Result::__anon22
+expr_bp	src/rdl_compile.c	/^bool expr_bp(RdlVM *vm, Lexer *L, int min_bp, OperationStack *stack) {$/;"	f
+find_local	src/rdl_compile.c	/^static int find_local(const char *name)$/;"	f	file:
+flags	include/rdl.h	/^   uint8_t flags;$/;"	m	struct:Object
+fn	include/rdl.h	/^      void *fn;$/;"	m	union:__anon19::__anon20
+fn_operation_ptr	src/rdl.c	/^static offset_t fn_operation_ptr = 0;$/;"	v	file:
+foreign_add	src/rdl_natives.c	/^void foreign_add(RdlVM *vm) {$/;"	f
+foreign_math_add	src/rdl_natives.c	/^void foreign_math_add(RdlVM *vm) {$/;"	f
+free_object_payload	src/rdl_eval.c	/^void free_object_payload(Object *obj){$/;"	f
+freelist	include/rdl.h	/^   Object *freelist;$/;"	m	struct:RdlVM
+fs	src/rdl_compile.c	/^static struct FnState *fs = &top_fs;$/;"	v	typeref:struct:FnState	file:
+g_log	src/rdl_natives.c	/^void g_log(RdlVM *vm){$/;"	f
+g_natives	src/rdl_natives.c	/^static const RdlNativeEntry g_natives[] = {$/;"	v	file:
+g_newline	src/rdl_natives.c	/^void g_newline(RdlVM *vm) { $/;"	f
+g_ops	src/rdl_eval.c	/^static const Operation *g_ops;$/;"	v	file:
+g_out	src/rdlTest.c	/^static FILE *g_out = NULL;$/;"	v	file:
+g_range	src/rdl_natives.c	/^void g_range(RdlVM *vm){$/;"	f
+g_tab	src/rdl_natives.c	/^void g_tab(RdlVM *vm) { $/;"	f
+gc_mark	src/rdl_eval.c	/^static void gc_mark(Result r){$/;"	f	file:
+get_lc	src/parser.c	/^int get_lc(){$/;"	f
+global_object	src/rdl.c	/^Result global_object = {$/;"	v
+hash_offset	include/ht.h	/^    size_t hash_offset;$/;"	m	struct:__anon26
+hasheq	include/ht.h	/^    Ht_Hasheq   hasheq;$/;"	m	struct:__anon27
+ht__delete	include/ht.h	/^static void ht__delete(Ht__Abstract *ht, void *slot, Ht__Layout l)$/;"	f
+ht__expand	include/ht.h	/^static void ht__expand(Ht__Abstract *ht, Ht__Layout l)$/;"	f
+ht__find	include/ht.h	/^static void *ht__find(Ht__Abstract *ht, void *key, Ht__Layout l)$/;"	f
+ht__find_and_delete	include/ht.h	/^static bool ht__find_and_delete(Ht__Abstract *ht, void *key, Ht__Layout l)$/;"	f
+ht__find_and_delete_cpp	include/ht.h	/^    static inline bool ht__find_and_delete_cpp(auto *ht, auto key)$/;"	f
+ht__find_cpp	include/ht.h	/^    static inline auto *ht__find_cpp(auto *ht, auto key)$/;"	f
+ht__find_or_put	include/ht.h	/^static void *ht__find_or_put(Ht__Abstract *ht, void *key, Ht__Layout l)$/;"	f
+ht__find_or_put_cpp	include/ht.h	/^    static inline auto *ht__find_or_put_cpp(auto *ht, auto key)$/;"	f
+ht__find_slot	include/ht.h	/^static void *ht__find_slot(Ht__Abstract *ht, uintptr_t hash, Ht_Hasheq hasheq, void *key, Ht__Layout l)$/;"	f
+ht__free	include/ht.h	/^static void ht__free(Ht__Abstract *ht)$/;"	f
+ht__key	include/ht.h	/^static void *ht__key(void *slot, Ht__Layout l)$/;"	f
+ht__layout	include/ht.h	/^#define ht__layout(/;"	d
+ht__memcmp	include/ht.h	/^static int ht__memcmp(const void *vl, const void *vr, size_t n)$/;"	f
+ht__memcpy	include/ht.h	/^static void *ht__memcpy(void *dest, const void *src, size_t n)$/;"	f
+ht__next	include/ht.h	/^static bool ht__next(Ht__Abstract *ht, void **slot, Ht__Layout l)$/;"	f
+ht__put	include/ht.h	/^static void *ht__put(Ht__Abstract *ht, void *key, Ht__Layout l)$/;"	f
+ht__put_cpp	include/ht.h	/^    static inline auto *ht__put_cpp(auto *ht, auto key)$/;"	f
+ht__put_no_expand	include/ht.h	/^static void *ht__put_no_expand(Ht__Abstract *ht, void *key, Ht__Layout l)$/;"	f
+ht__reset	include/ht.h	/^static void ht__reset(Ht__Abstract *ht, Ht__Layout l)$/;"	f
+ht__slot_hash	include/ht.h	/^#define ht__slot_hash(/;"	d
+ht__slot_key	include/ht.h	/^#define ht__slot_key(/;"	d
+ht__slot_size	include/ht.h	/^#define ht__slot_size(/;"	d
+ht__strcmp	include/ht.h	/^static int ht__strcmp(const char *l, const char *r)$/;"	f
+ht__strlen	include/ht.h	/^static size_t ht__strlen(const char *s)$/;"	f
+ht__typeof	include/ht.h	/^    #define ht__typeof /;"	d
+ht__word_align	include/ht.h	/^#define ht__word_align(/;"	d
+ht_cstr_hasheq	include/ht.h	/^HT_PUBDEF uintptr_t ht_cstr_hasheq(Ht_Op op, void const* a_, void const* b_, size_t n)$/;"	f
+ht_default_hash	include/ht.h	/^#define ht_default_hash /;"	d
+ht_delete	include/ht.h	/^#define ht_delete(/;"	d
+ht_djb2_hash	include/ht.h	/^HT_PUBDEF uintptr_t ht_djb2_hash(void const *data, size_t size)$/;"	f
+ht_find	include/ht.h	/^    #define ht_find /;"	d
+ht_find	include/ht.h	/^    #define ht_find(/;"	d
+ht_find_and_delete	include/ht.h	/^    #define ht_find_and_delete /;"	d
+ht_find_and_delete	include/ht.h	/^    #define ht_find_and_delete(/;"	d
+ht_find_or_put	include/ht.h	/^    #define ht_find_or_put /;"	d
+ht_find_or_put	include/ht.h	/^    #define ht_find_or_put(/;"	d
+ht_fnv1_hash	include/ht.h	/^HT_PUBDEF uintptr_t ht_fnv1_hash(void const *data, size_t size)$/;"	f
+ht_fnv1a_hash	include/ht.h	/^HT_PUBDEF uintptr_t ht_fnv1a_hash(void const *data, size_t size)$/;"	f
+ht_foreach	include/ht.h	/^#define ht_foreach(/;"	d
+ht_free	include/ht.h	/^#define ht_free(/;"	d
+ht_id_hash	include/ht.h	/^HT_PUBDEF uintptr_t ht_id_hash(void const *data, size_t size)$/;"	f
+ht_key	include/ht.h	/^#define ht_key(/;"	d
+ht_knuth_hash	include/ht.h	/^HT_PUBDEF uintptr_t ht_knuth_hash(void const *data, size_t size)$/;"	f
+ht_lose_lose_hash	include/ht.h	/^HT_PUBDEF uintptr_t ht_lose_lose_hash(void const *data, size_t size)$/;"	f
+ht_mem_hasheq	include/ht.h	/^HT_PUBDEF uintptr_t ht_mem_hasheq(Ht_Op op, void const* a_, void const *b_, size_t n)$/;"	f
+ht_next	include/ht.h	/^#define ht_next(/;"	d
+ht_put	include/ht.h	/^    #define ht_put /;"	d
+ht_put	include/ht.h	/^    #define ht_put(/;"	d
+ht_reset	include/ht.h	/^#define ht_reset(/;"	d
+ht_sdbm_hash	include/ht.h	/^HT_PUBDEF uintptr_t ht_sdbm_hash(void const *data, size_t size)$/;"	f
+ht_sv_hasheq	include/ht.h	/^HT_PUBDEF uintptr_t ht_sv_hasheq(Ht_Op op, void const *a_, void const *b_, size_t n)$/;"	f
+idx	include/rdl.h	/^      int idx;          \/\/ total idx of stack$/;"	m	union:__anon8::__anon9
+impl_capacity	include/ht.h	/^    size_t      impl_capacity;$/;"	m	struct:__anon27
+impl_filled_slots	include/ht.h	/^    size_t      impl_filled_slots;$/;"	m	struct:__anon27
+impl_slots	include/ht.h	/^    void       *impl_slots;$/;"	m	struct:__anon27
+infix_bp	src/rdl_compile.c	/^Bp infix_bp(Token token){$/;"	f
+init_keywords	src/parser.c	/^void init_keywords(){$/;"	f
+input_file	src/rdlTest.c	/^const char *input_file = NULL;$/;"	v
+instance	include/rdl.h	/^      } instance;$/;"	m	union:Object::__anon12	typeref:struct:Object::__anon12::__anon14
+instance_cmp	src/rdl_eval.c	/^bool instance_cmp(const Object lhs, const Object rhs){$/;"	f
+integer	include/rdl.h	/^      int		      integer;$/;"	m	union:Result::__anon22
+is_op	src/rdl_compile.c	/^bool is_op(Token t) {$/;"	f
+key_offset	include/ht.h	/^    size_t key_offset;$/;"	m	struct:__anon26
+key_size	include/ht.h	/^    size_t key_size;$/;"	m	struct:__anon26
+keyword	include/parser.h	/^    KEYWORD keyword;$/;"	m	union:Token::__anon5
+keywords	src/parser.c	/^static Keywords keywords = {$/;"	v	file:
+kind	include/parser.h	/^  TOKEN_KIND kind;$/;"	m	struct:Token
+kind	include/rdl.h	/^	} kind;$/;"	m	struct:Result	typeref:enum:Result::__anon21
+kind	include/rdl.h	/^   RdlNativeKind kind;$/;"	m	struct:__anon19
+kind	include/rdl.h	/^   } kind;$/;"	m	struct:Object	typeref:enum:Object::__anon11
+lb	include/rdl.h	/^   int lb;                 \/\/ locals base$/;"	m	struct:RdlVM
+lb	src/rdl_compile.c	/^	int lb, rb;$/;"	m	struct:__anon29	file:
+level	src/rdlTest.c	/^   int level;$/;"	m	struct:command	file:
+line_count	src/parser.c	/^static int line_count = 0;$/;"	v	file:
+list	include/rdl.h	/^      } list;$/;"	m	union:Object::__anon12	typeref:struct:Object::__anon12::__anon16
+locals	src/rdl_compile.c	/^   } locals;$/;"	m	struct:FnState	typeref:struct:FnState::__anon30	file:
+location	include/parser.h	/^  StringView location;$/;"	m	struct:Token
+main	src/rdlTest.c	/^int main(int argc, const char **argv) {$/;"	f
+math_add	src/rdl_natives.c	/^double math_add(double a, double b){ return a+b;}$/;"	f
+method	include/rdl.h	/^      } method;$/;"	m	union:Object::__anon12	typeref:struct:Object::__anon12::__anon15
+method_name	include/rdl.h	/^         char *	method_name;$/;"	m	struct:Object::__anon12::__anon15
+name	include/rdl.h	/^   char *name;$/;"	m	struct:VariableItem
+name	src/rdlTest.c	/^   const char *const name;$/;"	m	struct:command	file:
+name	src/rdl_compile.c	/^   const char *name;$/;"	m	struct:variable	file:
+native	include/rdl.h	/^         RdlCallback native;  \/\/ C closure: called instead of running a body (state lives in upvalues)$/;"	m	struct:Object::__anon12::__anon17
+net_operation_impact	src/rdl_compile.c	/^int net_operation_impact(Operation op)$/;"	f
+new_lexer	src/lexer.c	/^Lexer new_lexer(StringView *src) {$/;"	f
+new_object	src/rdl_eval.c	/^Object *new_object(RdlVM *vm){$/;"	f
+next	include/lexer.h	/^	Token next;$/;"	m	struct:__anon6
+next	include/rdl.h	/^   Object *next;$/;"	m	struct:Object
+next_open	include/rdl.h	/^   Upvalue *next_open;  \/\/ vm->open_upvalues list (sorted by slot, descending)$/;"	m	struct:Upvalue
+number	include/parser.h	/^    double number;$/;"	m	union:Token::__anon5
+number	include/rdl.h	/^      double 		   number;$/;"	m	union:Result::__anon22
+number	include/rdl.h	/^      double number;$/;"	m	union:__anon8::__anon9
+number_fmt	src/rdl_natives.c	/^void number_fmt(RdlVM *vm){$/;"	f
+number_is_between	src/rdl_natives.c	/^double number_is_between(double num, double a, double b){$/;"	f
+object	include/rdl.h	/^      Object*        object;$/;"	m	union:Result::__anon22
+objects	include/rdl.h	/^   Object *objects;$/;"	m	struct:RdlVM
+objects_count	include/rdl.h	/^   int objects_count;$/;"	m	struct:RdlVM
+offset	include/rdl.h	/^      int offset;       \/\/ offset relative to bp$/;"	m	union:__anon8::__anon9
+offset	include/rdl.h	/^      offset_t offset;$/;"	m	union:__anon19::__anon20
+offset_t	include/rdl.h	/^typedef int offset_t;$/;"	t
+opcode	include/rdl.h	/^   OPCODE opcode;$/;"	m	struct:__anon8
+open	include/rdl.h	/^   bool open;$/;"	m	struct:Upvalue
+open_upvalues	include/rdl.h	/^   Upvalue *open_upvalues; \/\/ upvalues$/;"	m	struct:RdlVM
+operation	src/rdl_compile.c	/^offset_t operation(Operation op, OperationStack *stack){$/;"	f
+operation_eval	src/rdl_eval.c	/^bool operation_eval(RdlVM *vm, Operation op){$/;"	f
+operation_ptr	src/rdl.c	/^static offset_t operation_ptr = 1000;$/;"	v	file:
+output_file	src/rdlTest.c	/^const char *output_file = ".\/out.txt";$/;"	v
+parent	src/rdl_compile.c	/^   struct FnState    *parent;$/;"	m	struct:FnState	typeref:struct:FnState::FnState	file:
+parse_next_token	src/parser.c	/^Token parse_next_token(StringView *source) {$/;"	f
+pc	include/rdl.h	/^   int pc;                 \/\/ program counter$/;"	m	struct:RdlVM
+pop	src/rdl_eval.c	/^#define pop(/;"	d	file:
+postfix_bp	src/rdl_compile.c	/^int postfix_bp(Token token){$/;"	f
+prefix_bp	src/rdl_compile.c	/^int prefix_bp(Token token){$/;"	f
+print_fn	include/rdl.h	/^	void (*print_fn)(Result);$/;"	m	struct:RdlVM
+print_help	src/rdlTest.c	/^bool print_help(struct command *self, const char *const prg_name, int *argc, const char **argv)$/;"	f
+print_op	src/rdl_compile.c	/^void print_op(Operation op){$/;"	f
+process	src/rdl_compile.c	/^void process(Token token, OperationStack *stack) {$/;"	f
+protected_dot	src/parser.c	/^static bool protected_dot = false;$/;"	v	file:
+ptr	include/rdl.h	/^      offset_t ptr;     \/\/ Operation pointer$/;"	m	union:__anon8::__anon9
+push	src/rdl_eval.c	/^#define push(/;"	d	file:
+range_step	src/rdl_natives.c	/^static void range_step(RdlVM *vm){$/;"	f	file:
+rb	src/rdl_compile.c	/^	int lb, rb;$/;"	m	struct:__anon29	file:
+rdl_bind_natives	src/rdl_natives.c	/^void rdl_bind_natives(RdlVM *vm){$/;"	f
+rdl_compile	src/rdl.c	/^void rdl_compile(RdlVM *vm, StringView src)$/;"	f
+rdl_echo_results	src/rdl_eval.c	/^static void rdl_echo_results(RdlVM *vm, int start_depth){$/;"	f	file:
+rdl_eval	src/rdl.c	/^void rdl_eval(RdlVM *vm){$/;"	f
+rdl_init	src/rdl.c	/^void rdl_init(RdlVM *vm){$/;"	f
+rdl_pop	src/rdl.c	/^Result rdl_pop(RdlVM *vm)$/;"	f
+rdl_pop_double	src/rdl.c	/^double rdl_pop_double(RdlVM *vm) {$/;"	f
+rdl_pop_foreign	src/rdl.c	/^void *rdl_pop_foreign(RdlVM *vm){$/;"	f
+rdl_pop_string	src/rdl.c	/^char *rdl_pop_string(RdlVM *vm) {$/;"	f
+rdl_push	src/rdl.c	/^void rdl_push(RdlVM *vm, Result res)$/;"	f
+rdl_push_double	src/rdl.c	/^void rdl_push_double(RdlVM *vm, double value) {$/;"	f
+rdl_push_fn	src/rdl.c	/^void rdl_push_fn(RdlVM *vm, RdlCallback fn, int nupvalues){$/;"	f
+rdl_push_new_foreign	src/rdl.c	/^void *rdl_push_new_foreign(RdlVM *vm, char *class_name, int size){$/;"	f
+rdl_push_null	src/rdl.c	/^void rdl_push_null(RdlVM *vm){$/;"	f
+rdl_push_string	src/rdl.c	/^void rdl_push_string(RdlVM *vm, char *str) {$/;"	f
+rdl_register_method	src/rdl.c	/^void rdl_register_method($/;"	f
+rdl_reset	src/rdl.c	/^void rdl_reset(RdlVM *vm){$/;"	f
+rdl_single_eval	src/rdl.c	/^Result rdl_single_eval(RdlVM *vm, StringView *src){$/;"	f
+rdl_type	src/rdl.c	/^int rdl_type(RdlVM *vm){$/;"	f
+rdl_upvalue_get_double	src/rdl.c	/^double rdl_upvalue_get_double(RdlVM *vm, int idx){$/;"	f
+rdl_upvalue_get_foreign	src/rdl.c	/^void *rdl_upvalue_get_foreign(RdlVM *vm, int idx){$/;"	f
+rdl_upvalue_set_double	src/rdl.c	/^void rdl_upvalue_set_double(RdlVM *vm, int idx, double value){$/;"	f
+rdl_upvalue_set_null	src/rdl.c	/^void rdl_upvalue_set_null(RdlVM *vm, int idx){$/;"	f
+refcount	include/rdl.h	/^   int refcount;        \/\/ number of closures holding this upvalue$/;"	m	struct:Upvalue
+register_a	include/rdl.h	/^   Result register_a;$/;"	m	struct:RdlVM
+register_fn	src/rdl.c	/^void register_fn(RdlVM *vm, const char *name, offset_t offset){$/;"	f
+register_variable	src/rdl_eval.c	/^void register_variable(RdlVM *vm, const char *name){$/;"	f
+release_upvalue	src/rdl_eval.c	/^static void release_upvalue(Upvalue *uv){$/;"	f	file:
+reset_variables	src/rdl_eval.c	/^void reset_variables(RdlVM *vm, int idx){$/;"	f
+restore_state	src/rdl_eval.c	/^void restore_state(RdlVM *vm){$/;"	f
+result_print	src/rdl_eval.c	/^void result_print(Result res) {$/;"	f
+result_type	src/rdl_eval.c	/^const char *result_type(Result result){$/;"	f
+retrive_variable	src/rdl_eval.c	/^void retrive_variable(RdlVM *vm, const char *name){$/;"	f
+run	src/rdlTest.c	/^   bool (*run)(struct command *self, const char *const prg_name, int *argc, const char **argv);$/;"	m	struct:command	file:
+run_next_command	src/rdlTest.c	/^bool run_next_command(const char *const prg_name, int *argc, const char **argv)$/;"	f
+run_rdl_file	src/rdlTest.c	/^bool run_rdl_file(struct command *self, const char *const prg_name, int *argc, const char **argv)$/;"	f
+save_state	src/rdl_eval.c	/^void save_state(RdlVM *vm){$/;"	f
+set_out_path	src/rdlTest.c	/^bool set_out_path(struct command *self, const char *const prg_name, int *argc, const char **argv)$/;"	f
+shift	src/rdlTest.c	/^#define shift(/;"	d	file:
+signature	include/rdl.h	/^   const char   *signature;   \/\/ "sqrt(0)", "add(2)", "name" ...$/;"	m	struct:__anon19
+signature	src/rdlTest.c	/^   const char *const signature;$/;"	m	struct:command	file:
+slot	include/rdl.h	/^   int slot;            \/\/ open: absolute index into vm->data$/;"	m	struct:Upvalue
+slot	include/rdl.h	/^   int slot; \/\/ index into vm->data, NOT a raw pointer - vm->data is$/;"	m	struct:VariableItem
+slot	src/rdl_compile.c	/^   int slot;$/;"	m	struct:variable	file:
+slot_size	include/ht.h	/^    size_t slot_size;$/;"	m	struct:__anon26
+sp	include/rdl.h	/^		int sp; \/\/ SlotPointer$/;"	m	union:RdlVM::__anon23
+src	include/lexer.h	/^	StringView *src;$/;"	m	struct:__anon6
+stack	src/rdl.c	/^static OperationStack stack = {$/;"	v	file:
+stack_eval	src/rdl_eval.c	/^bool stack_eval(RdlVM *vm, const OperationStack stack){$/;"	f
+stack_offset	src/rdl_compile.c	/^   int stack_offset;     \/\/ keeping track of where the var is on the stack$/;"	m	struct:FnState	file:
+stack_print	src/rdl_compile.c	/^void stack_print(const OperationStack stack){$/;"	f
+start	include/rdl.h	/^         offset_t start;      \/\/ first operation of the fn body$/;"	m	struct:Object::__anon12::__anon17
+stf_ctof	include/da.h	/^static float stf_ctof(const char* text,int len){$/;"	f
+stf_da_append	include/da.h	/^#define stf_da_append(/;"	d
+stf_da_append_str	include/da.h	/^#define stf_da_append_str(/;"	d
+stf_da_at	include/da.h	/^#define stf_da_at(/;"	d
+stf_da_first	include/da.h	/^#define stf_da_first(/;"	d
+stf_da_foreach	include/da.h	/^#define stf_da_foreach(/;"	d
+stf_da_free	include/da.h	/^#define stf_da_free(/;"	d
+stf_da_last	include/da.h	/^#define stf_da_last(/;"	d
+stf_da_lastp	include/da.h	/^#define stf_da_lastp(/;"	d
+stf_da_memcpy	include/da.h	/^#define stf_da_memcpy(/;"	d
+stf_da_pop	include/da.h	/^#define stf_da_pop(/;"	d
+stf_da_popn	include/da.h	/^#define stf_da_popn(/;"	d
+stf_da_reserve	include/da.h	/^#define stf_da_reserve(/;"	d
+stf_da_rforeach	include/da.h	/^#define stf_da_rforeach(/;"	d
+stf_read_file_to_sb	include/da.h	/^StringBuffer stf_read_file_to_sb(const char *path)$/;"	f
+stf_sv_cc_cmp	include/da.h	/^int stf_sv_cc_cmp(const StringView a, const char *b)$/;"	f
+stf_sv_chop_left	include/da.h	/^StringView stf_sv_chop_left(StringView *sv, int count){$/;"	f
+stf_sv_chop_right	include/da.h	/^StringView stf_sv_chop_right(StringView *sv, int count){$/;"	f
+stf_sv_cmp	include/da.h	/^int stf_sv_cmp(const StringView a, const StringView b)$/;"	f
+stf_sv_first_where	include/da.h	/^int stf_sv_first_where(StringView *sv, char character) {$/;"	f
+stf_sv_from_cc	include/da.h	/^StringView stf_sv_from_cc(const char *str)$/;"	f
+stf_sv_from_sb	include/da.h	/^StringView stf_sv_from_sb(const StringBuffer sb){$/;"	f
+stf_sv_shift	include/da.h	/^inline char stf_sv_shift(StringView *sv){$/;"	f
+stf_sv_split	include/da.h	/^StringView stf_sv_split(StringView *sv, char seperator){$/;"	f
+stf_sv_split_after	include/da.h	/^StringView stf_sv_split_after(StringView *sv, char seperator, int n){$/;"	f
+stf_sv_trim_left	include/da.h	/^int stf_sv_trim_left(StringView *sv){$/;"	f
+stf_sv_trim_right	include/da.h	/^int stf_sv_trim_right(StringView *sv){$/;"	f
+stf_svdup	include/da.h	/^#define stf_svdup(/;"	d
+stf_svtod	include/da.h	/^double stf_svtod(StringView sv)$/;"	f
+stf_svtoi	include/da.h	/^static int stf_svtoi(StringView sv)$/;"	f
+stf_temp_alloc	include/da.h	/^void *stf_temp_alloc(int size) {$/;"	f
+stf_temp_buffer	include/da.h	/^static char stf_temp_buffer[STF_TEMP_BUFFER_SIZE];$/;"	v
+stf_temp_count	include/da.h	/^static size_t stf_temp_count = 0;$/;"	v
+stf_temp_lower	include/da.h	/^char *stf_temp_lower(const char *str)$/;"	f
+stf_temp_sprintf	include/da.h	/^char *stf_temp_sprintf(const char *format, ...) {$/;"	f
+stf_temp_strdup	include/da.h	/^char *stf_temp_strdup(const char *str)$/;"	f
+stf_temp_strdupn	include/da.h	/^char *stf_temp_strdupn(const char *str, int len)$/;"	f
+stf_temp_svprintf	include/da.h	/^StringView stf_temp_svprintf(const char *format, ...) {$/;"	f
+stf_temp_svtocc	include/da.h	/^const char *stf_temp_svtocc(const StringView sv)$/;"	f
+stf_temp_upper	include/da.h	/^char *stf_temp_upper(const char *str)$/;"	f
+stf_temp_vsprintf	include/da.h	/^char *stf_temp_vsprintf(const char *format, va_list ap) {$/;"	f
+string	include/rdl.h	/^      } string;$/;"	m	union:Object::__anon12	typeref:struct:Object::__anon12::__anon13
+sv	include/parser.h	/^    StringView sv;$/;"	m	union:Token::__anon5
+template_state	src/parser.c	/^} template_state = TEMPLATE_NONE;$/;"	v	typeref:enum:__anon33
+text	include/rdl.h	/^      const char *text; \/\/ OpIDENT: identifier name; OpDOT: method\/field name (stable temp-arena string)$/;"	m	union:__anon8::__anon9
+token_cc	src/rdl_compile.c	/^const char *token_cc(TOKEN_KIND kind) {$/;"	f
+top_fs	src/rdl_compile.c	/^static struct FnState top_fs;$/;"	v	typeref:struct:FnState	file:
+u16	include/da.h	/^	typedef uint16_t 	u16;$/;"	t
+u32	include/da.h	/^	typedef uint32_t 	u32;$/;"	t
+u64	include/da.h	/^	typedef uint64_t 	u64;$/;"	t
+u8	include/da.h	/^	typedef uint8_t 	u8;$/;"	t
+upvalue_ref	src/rdl_eval.c	/^Result *upvalue_ref(RdlVM *vm, int idx){$/;"	f
+upvalues	include/rdl.h	/^         Upvalue **upvalues;$/;"	m	struct:Object::__anon12::__anon17
+value_size	include/ht.h	/^    size_t value_size;$/;"	m	struct:__anon26
+variable	src/rdl_compile.c	/^struct variable {$/;"	s	file:
+variables	include/rdl.h	/^   VariableItem variables[MAX_VARIABLES];$/;"	m	struct:RdlVM
+variables_count	include/rdl.h	/^   int variables_count;$/;"	m	struct:RdlVM
+write_result	src/rdlTest.c	/^static void write_result(Result res) {$/;"	f	file:

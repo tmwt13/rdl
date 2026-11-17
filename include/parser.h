@@ -1,5 +1,5 @@
 #pragma once
-#include "../../include/da.h"
+#include "da.h"
 
 typedef enum {
   TOKEN_ERROR = 0,

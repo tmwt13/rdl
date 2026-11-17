@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../../include/da.h"
-#include "../../thirdparty/include/ht.h"
+#include "da.h"
+#include "ht.h"
 #include "parser.h"
 #include "lexer.h"
 
@@ -133,8 +133,8 @@ typedef enum {
 } RdlNativeKind;
 
 typedef struct {
-   char   *class_name;
-   char   *signature;   // "sqrt(0)", "add(2)", "name" ...
+   const char   *class_name;
+   const char   *signature;   // "sqrt(0)", "add(2)", "name" ...
    RdlNativeKind kind;
    int           arg_base;    // 0 = Receiver ist der Operand (Methodenaufruf), 1 = erstes explizites Arg (freier Aufruf)
    union {

@@ -1,8 +1,8 @@
-#include "include/parser.h"
+#include "parser.h"
 
 #define HT_PUBDEF static
 #define HT_IMPLEMENTATION
-#include "../thirdparty/include/ht.h"
+#include "ht.h"
 
 #include <ctype.h>
 

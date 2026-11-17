@@ -1,10 +1,10 @@
 
 #define HT_PUBDEF static
-#include "include/rdl.h"
+#include "rdl.h"
 #include <math.h>
-#include "../include/da.h"
+#include "da.h"
 #define HT_IMPLEMENTATION
-#include "../thirdparty/include/ht.h"
+#include "ht.h"
 
 // bindings:
 void g_range(RdlVM *vm);

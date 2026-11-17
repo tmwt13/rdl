@@ -1,12 +1,12 @@
 #define HT_PUBDEF static
 
-#include "include/rdl.h"
+#include "rdl.h"
 
 #include <math.h>
-#include "../include/da.h"
+#include "da.h"
 
 #define HT_IMPLEMENTATION
-#include "../thirdparty/include/ht.h"
+#include "ht.h"
 
 #define MAX_OPERATION_STACK 2000
 static Operation _operations[MAX_OPERATION_STACK];

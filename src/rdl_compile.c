@@ -1,11 +1,11 @@
 #define HT_PUBDEF static
-#include "include/rdl.h"
-#include "include/parser.h"
-#include "include/lexer.h"
+#include "rdl.h"
+#include "parser.h"
+#include "lexer.h"
 
-#include "../include/da.h"
+#include "da.h"
 #define HT_IMPLEMENTATION
-#include "../thirdparty/include/ht.h"
+#include "ht.h"
 
 typedef struct {
 	int lb, rb;
@@ -42,14 +42,13 @@ void        stack_print(const OperationStack stack);
 //    TODO: search for variable name will be linear form bottom most to top most scope
 //    TODO: I want that function become some kind of variables too
 //    TODO: some way for closures to capture parent variables
-struct FnState;
 
-static struct variable {
+struct variable {
    const char *name;
    int slot;
 };
 
-static struct FnState {
+struct FnState {
    struct FnState    *parent;
    struct {
       struct variable data[10];
@@ -115,8 +114,9 @@ int prefix_bp(Token token){
 		case TOKEN_ADD: return 21;
 		case TOKEN_SUB: return 21;
 		case TOKEN_KEYWORD: return 2;
+      // else:
 		default:
-				return 0;
+         return 0;
 	}
 }
 
@@ -124,7 +124,7 @@ int postfix_bp(Token token){
 	switch(token.kind){
 		case TOKEN_PERCENT: return 20;  
 		default:
-				    return 0;
+         return 0;
 	}
 }
 
@@ -168,7 +168,7 @@ Bp infix_bp(Token token){
 
 int net_operation_impact(Operation op)
 {
-   int impacts[36] = {
+   int impacts[39] = {
       1, //OpERROR,    // Abort program
       1, //OpNULL,     // PUSH null
       1, //OpNUM,      // PUSH num

@@ -1,9 +1,9 @@
 #define HT_PUBDEF static
 
-#include "include/rdl.h"
-#include "../include/da.h"
+#include "rdl.h"
+#include "da.h"
 #define HT_IMPLEMENTATION
-#include "../thirdparty/include/ht.h"
+#include "ht.h"
 
 #ifndef ALLOC
 #define ALLOC malloc
@@ -431,15 +431,15 @@ bool operation_eval(RdlVM *vm, Operation op){
          lhs = pop(vm);
          switch(lhs.kind)
          {
-         case RESULT_NUMBER: 
-            if(lhs.number) break;
-         case RESULT_NULL:
-         case RESULT_ERROR:            
-         case RESULT_VOID:
-            vm->pc = op.as.ptr;
-            return true;
-         default:
-         }
+            case RESULT_NUMBER: 
+               if(lhs.number) break;
+            case RESULT_NULL:
+            case RESULT_ERROR:            
+            case RESULT_VOID:
+               vm->pc = op.as.ptr;
+               return true;
+            default:
+         } 
          break;
       case OpNULL:      
          PUSHES_VALUES(1);
