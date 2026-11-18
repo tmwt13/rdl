@@ -85,7 +85,7 @@ typedef struct Upvalue Upvalue;
 struct Object {
    uint8_t flags;
    enum {
-      OBJ_INSTANCE, OBJ_METHOD, OBJ_TEXT, OBJ_LIST, OBJ_CLOSURE,
+      OBJ_INSTANCE, OBJ_METHOD, OBJ_TEXT, OBJ_LIST, OBJ_FUNCTION,
    } kind;
    char * class_name;
 
@@ -106,13 +106,13 @@ struct Object {
          Result *data;
          u8 count, capacity;
       } list;
-
       struct{
-         offset_t start;      // first operation of the fn body
-         RdlCallback native;  // C closure: called instead of running a body (state lives in upvalues)
+         RdlNativeEntry entry;
+         Result *data;
+         int dcount;
          Upvalue **upvalues;
          int count;
-      } closure;
+      } function;
    } as;
 
    Object *next;
@@ -146,7 +146,6 @@ typedef struct {
 struct Result {
 	enum {
 		RESULT_ERROR, RESULT_NUMBER, RESULT_NULL,
-      RESULT_FUNCTION,
 		RESULT_VOID,
 		RESULT_INT,
       RESULT_CHAR,
@@ -154,7 +153,6 @@ struct Result {
 	} kind;
 	union {
       int 		      error_code;
-      RdlNativeEntry *entry;
       double 		   number;
       char           chr;
       int		      integer;

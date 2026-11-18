@@ -5,8 +5,8 @@ export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:${PKG_CONFIG_PATH}"
 
 # Source files
 SOURCE_FILES=(
-   ./src/rdl.c ./src/rdl_compile.c ./src/rdl_eval.c  ./src/rdl_natives.c
-   ./src/parser.c ./src/lexer.c )
+   rdl.c rdl_compile.c rdl_eval.c  rdl_natives.c
+   parser.c lexer.c )
 
 # Header paths
 INCLUDE="-I./include/"
@@ -20,7 +20,7 @@ CC="gcc"
 # Build functions
 
 build_native() {
-    $CC ./src/rdlTest.c ${SOURCE_FILES[@]} $INCLUDE -g -o "$OUT_PATH" 
+    $CC rdlTest.c ${SOURCE_FILES[@]} $INCLUDE -g -o "$OUT_PATH" 
 
     if [ $? -eq 0 ]; then
         echo "✅: $OUT_PATH"

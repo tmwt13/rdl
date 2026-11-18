@@ -1,0 +1,179 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ALLOC	rdl_eval.c	/^#define ALLOC /;"	d	file:
+ARRAY_LEN	rdlTest.c	/^#define ARRAY_LEN(/;"	d	file:
+BINOP	rdl_eval.c	/^#define BINOP(/;"	d	file:
+Bp	rdl_compile.c	/^} Bp; \/\/ Binding-Power$/;"	t	typeref:struct:__anon1	file:
+FnState	rdl_compile.c	/^struct FnState {$/;"	s	file:
+HT_IMPLEMENTATION	parser.c	/^#define HT_IMPLEMENTATION$/;"	d	file:
+HT_IMPLEMENTATION	rdl.c	/^#define HT_IMPLEMENTATION$/;"	d	file:
+HT_IMPLEMENTATION	rdlTest.c	/^#define HT_IMPLEMENTATION$/;"	d	file:
+HT_IMPLEMENTATION	rdl_compile.c	/^#define HT_IMPLEMENTATION$/;"	d	file:
+HT_IMPLEMENTATION	rdl_eval.c	/^#define HT_IMPLEMENTATION$/;"	d	file:
+HT_IMPLEMENTATION	rdl_natives.c	/^#define HT_IMPLEMENTATION$/;"	d	file:
+HT_PUBDEF	parser.c	/^#define HT_PUBDEF /;"	d	file:
+HT_PUBDEF	rdl.c	/^#define HT_PUBDEF /;"	d	file:
+HT_PUBDEF	rdlTest.c	/^#define HT_PUBDEF /;"	d	file:
+HT_PUBDEF	rdl_compile.c	/^#define HT_PUBDEF /;"	d	file:
+HT_PUBDEF	rdl_eval.c	/^#define HT_PUBDEF /;"	d	file:
+HT_PUBDEF	rdl_natives.c	/^#define HT_PUBDEF /;"	d	file:
+Keywords	parser.c	/^typedef Ht(const char *, KEYWORD) Keywords;$/;"	t	file:
+LEND	parser.c	/^#define LEND(/;"	d	file:
+LSTART	parser.c	/^#define LSTART(/;"	d	file:
+MAX_OPERATION_STACK	rdl.c	/^#define MAX_OPERATION_STACK /;"	d	file:
+OP_PUSH	rdl_compile.c	/^#define OP_PUSH(/;"	d	file:
+POP	rdl.c	/^#define POP(/;"	d	file:
+PRE1	rdl_compile.c	/^#define PRE1 /;"	d	file:
+PRE2	rdl_compile.c	/^#define PRE2 /;"	d	file:
+PUSH	rdl.c	/^#define PUSH(/;"	d	file:
+PUSHES_VALUES	rdl_eval.c	/^#define PUSHES_VALUES(/;"	d	file:
+RANGE_CUR	rdl_natives.c	/^enum { RANGE_CUR, RANGE_MAX, RANGE_UPVALUES };$/;"	e	enum:__anon4	file:
+RANGE_MAX	rdl_natives.c	/^enum { RANGE_CUR, RANGE_MAX, RANGE_UPVALUES };$/;"	e	enum:__anon4	file:
+RANGE_UPVALUES	rdl_natives.c	/^enum { RANGE_CUR, RANGE_MAX, RANGE_UPVALUES };$/;"	e	enum:__anon4	file:
+REQUIRES_ARGS	rdl_eval.c	/^#define REQUIRES_ARGS(/;"	d	file:
+RESTORE	rdl_eval.c	/^#define RESTORE(/;"	d	file:
+STF_IMPLEMENTATION	rdlTest.c	/^#define STF_IMPLEMENTATION$/;"	d	file:
+STORE	rdl_eval.c	/^#define STORE(/;"	d	file:
+TEMPLATE_NONE	lexer.c	/^   TEMPLATE_NONE,$/;"	e	enum:__anon3	file:
+TEMPLATE_NONE	parser.c	/^   TEMPLATE_NONE,$/;"	e	enum:__anon5	file:
+TEMPLATE_RDL	lexer.c	/^   TEMPLATE_RDL,$/;"	e	enum:__anon3	file:
+TEMPLATE_RDL	parser.c	/^   TEMPLATE_RDL,$/;"	e	enum:__anon5	file:
+TEMPLATE_TEXT	lexer.c	/^   TEMPLATE_TEXT,$/;"	e	enum:__anon3	file:
+TEMPLATE_TEXT	parser.c	/^   TEMPLATE_TEXT,$/;"	e	enum:__anon5	file:
+_get_entry	rdl_eval.c	/^RdlNativeEntry *_get_entry(RdlVM *vm, const char *class_name, const char *signature){$/;"	f
+_global_object	rdl.c	/^Object _global_object = {$/;"	v
+_invoke_native	rdl_eval.c	/^void _invoke_native(RdlVM *vm, const RdlNativeEntry *e) {$/;"	f
+_operations	rdl.c	/^static Operation _operations[MAX_OPERATION_STACK];$/;"	v	file:
+activate_template_mode	lexer.c	/^void activate_template_mode(){$/;"	f
+buildclosure	rdl_eval.c	/^Result buildclosure(RdlVM *vm, offset_t start, int up_count){$/;"	f
+buildinstance	rdl_eval.c	/^Result buildinstance(RdlVM *vm, const char *class_name, int size){$/;"	f
+buildmethod	rdl_eval.c	/^Result buildmethod(RdlVM *vm, const char *class_name, const char *method_name){$/;"	f
+buildstring	rdl_eval.c	/^Result buildstring(RdlVM *vm, const char *cc){$/;"	f
+capture_upvalue	rdl_eval.c	/^static Upvalue *capture_upvalue(RdlVM *vm, int slot){$/;"	f	file:
+close_upvalues	rdl_eval.c	/^static void close_upvalues(RdlVM *vm, int from){$/;"	f	file:
+collectgarbage	rdl_eval.c	/^void collectgarbage(RdlVM *vm){$/;"	f
+command	rdlTest.c	/^struct command {$/;"	s	file:
+command_print_usage	rdlTest.c	/^void command_print_usage(FILE *fd, struct command *cmd)$/;"	f
+commands	rdlTest.c	/^static struct command commands[] = {$/;"	v	typeref:struct:command	file:
+compile	rdl_compile.c	/^bool compile(RdlVM *vm, Lexer *L, OperationStack *stack){$/;"	f
+compile_args	rdl_compile.c	/^bool compile_args(RdlVM *vm, Lexer *L, OperationStack *stack){$/;"	f
+compile_call	rdl_compile.c	/^void compile_call(RdlVM *vm, Lexer *L, OperationStack *stack){$/;"	f
+compile_dot_call	rdl_compile.c	/^void compile_dot_call(RdlVM *vm, Lexer *L, OperationStack *stack, Token name){$/;"	f
+compile_fn	rdl_compile.c	/^bool compile_fn(RdlVM *vm, Lexer *L, OperationStack *stack){$/;"	f
+compile_fn_end	rdl_compile.c	/^static void compile_fn_end(OperationStack *stack){$/;"	f	file:
+compile_fn_global	rdl_compile.c	/^bool compile_fn_global(RdlVM *vm, Lexer *L, OperationStack *stack){$/;"	f
+compile_if	rdl_compile.c	/^bool compile_if(RdlVM *vm, Lexer *L, OperationStack *stack){$/;"	f
+compile_loop	rdl_compile.c	/^bool compile_loop(RdlVM *vm, Lexer *L, OperationStack *stack){$/;"	f
+compile_reset	rdl_compile.c	/^void compile_reset(void){$/;"	f
+compile_set	rdl_compile.c	/^bool compile_set(RdlVM *vm, Lexer *L, OperationStack *stack){$/;"	f
+compile_with	rdl_compile.c	/^bool compile_with(RdlVM *vm, Lexer *L, OperationStack *stack){$/;"	f
+count	rdl_compile.c	/^      int count;$/;"	m	struct:FnState::__anon2	file:
+data	rdl_compile.c	/^      struct variable data[10];$/;"	m	struct:FnState::__anon2	typeref:struct:FnState::__anon2::variable	file:
+declare_local	rdl_compile.c	/^static void declare_local(const char *name)$/;"	f	file:
+description	rdlTest.c	/^   const char *const description;$/;"	m	struct:command	file:
+eat	lexer.c	/^Token eat(Lexer *L) {$/;"	f
+expr_bp	rdl_compile.c	/^bool expr_bp(RdlVM *vm, Lexer *L, int min_bp, OperationStack *stack) {$/;"	f
+find_local	rdl_compile.c	/^static int find_local(const char *name)$/;"	f	file:
+fn_operation_ptr	rdl.c	/^static offset_t fn_operation_ptr = 0;$/;"	v	file:
+foreign_add	rdl_natives.c	/^void foreign_add(RdlVM *vm) {$/;"	f
+foreign_math_add	rdl_natives.c	/^void foreign_math_add(RdlVM *vm) {$/;"	f
+free_object_payload	rdl_eval.c	/^void free_object_payload(Object *obj){$/;"	f
+fs	rdl_compile.c	/^static struct FnState *fs = &top_fs;$/;"	v	typeref:struct:FnState	file:
+g_log	rdl_natives.c	/^void g_log(RdlVM *vm){$/;"	f
+g_natives	rdl_natives.c	/^static const RdlNativeEntry g_natives[] = {$/;"	v	file:
+g_newline	rdl_natives.c	/^void g_newline(RdlVM *vm) { $/;"	f
+g_ops	rdl_eval.c	/^static const Operation *g_ops;$/;"	v	file:
+g_out	rdlTest.c	/^static FILE *g_out = NULL;$/;"	v	file:
+g_range	rdl_natives.c	/^void g_range(RdlVM *vm){$/;"	f
+g_tab	rdl_natives.c	/^void g_tab(RdlVM *vm) { $/;"	f
+gc_mark	rdl_eval.c	/^static void gc_mark(Result r){$/;"	f	file:
+get_lc	parser.c	/^int get_lc(){$/;"	f
+global_object	rdl.c	/^Result global_object = {$/;"	v
+infix_bp	rdl_compile.c	/^Bp infix_bp(Token token){$/;"	f
+init_keywords	parser.c	/^void init_keywords(){$/;"	f
+input_file	rdlTest.c	/^const char *input_file = NULL;$/;"	v
+instance_cmp	rdl_eval.c	/^bool instance_cmp(const Object lhs, const Object rhs){$/;"	f
+is_op	rdl_compile.c	/^bool is_op(Token t) {$/;"	f
+keywords	parser.c	/^static Keywords keywords = {$/;"	v	file:
+lb	rdl_compile.c	/^	int lb, rb;$/;"	m	struct:__anon1	file:
+level	rdlTest.c	/^   int level;$/;"	m	struct:command	file:
+line_count	parser.c	/^static int line_count = 0;$/;"	v	file:
+locals	rdl_compile.c	/^   } locals;$/;"	m	struct:FnState	typeref:struct:FnState::__anon2	file:
+main	rdlTest.c	/^int main(int argc, const char **argv) {$/;"	f
+math_add	rdl_natives.c	/^double math_add(double a, double b){ return a+b;}$/;"	f
+name	rdlTest.c	/^   const char *const name;$/;"	m	struct:command	file:
+name	rdl_compile.c	/^   const char *name;$/;"	m	struct:variable	file:
+net_operation_impact	rdl_compile.c	/^int net_operation_impact(Operation op)$/;"	f
+new_lexer	lexer.c	/^Lexer new_lexer(StringView *src) {$/;"	f
+new_object	rdl_eval.c	/^Object *new_object(RdlVM *vm){$/;"	f
+number_fmt	rdl_natives.c	/^void number_fmt(RdlVM *vm){$/;"	f
+number_is_between	rdl_natives.c	/^double number_is_between(double num, double a, double b){$/;"	f
+operation	rdl_compile.c	/^offset_t operation(Operation op, OperationStack *stack){$/;"	f
+operation_eval	rdl_eval.c	/^bool operation_eval(RdlVM *vm, Operation op){$/;"	f
+operation_ptr	rdl.c	/^static offset_t operation_ptr = 1000;$/;"	v	file:
+output_file	rdlTest.c	/^const char *output_file = ".\/out.txt";$/;"	v
+parent	rdl_compile.c	/^   struct FnState    *parent;$/;"	m	struct:FnState	typeref:struct:FnState::FnState	file:
+parse_next_token	parser.c	/^Token parse_next_token(StringView *source) {$/;"	f
+pop	rdl_eval.c	/^#define pop(/;"	d	file:
+postfix_bp	rdl_compile.c	/^int postfix_bp(Token token){$/;"	f
+prefix_bp	rdl_compile.c	/^int prefix_bp(Token token){$/;"	f
+print_help	rdlTest.c	/^bool print_help(struct command *self, const char *const prg_name, int *argc, const char **argv)$/;"	f
+print_op	rdl_compile.c	/^void print_op(Operation op){$/;"	f
+process	rdl_compile.c	/^void process(Token token, OperationStack *stack) {$/;"	f
+protected_dot	parser.c	/^static bool protected_dot = false;$/;"	v	file:
+push	rdl_eval.c	/^#define push(/;"	d	file:
+range_step	rdl_natives.c	/^static void range_step(RdlVM *vm){$/;"	f	file:
+rb	rdl_compile.c	/^	int lb, rb;$/;"	m	struct:__anon1	file:
+rdl_bind_natives	rdl_natives.c	/^void rdl_bind_natives(RdlVM *vm){$/;"	f
+rdl_compile	rdl.c	/^void rdl_compile(RdlVM *vm, StringView src)$/;"	f
+rdl_echo_results	rdl_eval.c	/^static void rdl_echo_results(RdlVM *vm, int start_depth){$/;"	f	file:
+rdl_eval	rdl.c	/^void rdl_eval(RdlVM *vm){$/;"	f
+rdl_init	rdl.c	/^void rdl_init(RdlVM *vm){$/;"	f
+rdl_pop	rdl.c	/^Result rdl_pop(RdlVM *vm)$/;"	f
+rdl_pop_double	rdl.c	/^double rdl_pop_double(RdlVM *vm) {$/;"	f
+rdl_pop_foreign	rdl.c	/^void *rdl_pop_foreign(RdlVM *vm){$/;"	f
+rdl_pop_string	rdl.c	/^char *rdl_pop_string(RdlVM *vm) {$/;"	f
+rdl_push	rdl.c	/^void rdl_push(RdlVM *vm, Result res)$/;"	f
+rdl_push_double	rdl.c	/^void rdl_push_double(RdlVM *vm, double value) {$/;"	f
+rdl_push_fn	rdl.c	/^void rdl_push_fn(RdlVM *vm, RdlCallback fn, int nupvalues){$/;"	f
+rdl_push_new_foreign	rdl.c	/^void *rdl_push_new_foreign(RdlVM *vm, char *class_name, int size){$/;"	f
+rdl_push_null	rdl.c	/^void rdl_push_null(RdlVM *vm){$/;"	f
+rdl_push_string	rdl.c	/^void rdl_push_string(RdlVM *vm, char *str) {$/;"	f
+rdl_register_method	rdl.c	/^void rdl_register_method($/;"	f
+rdl_reset	rdl.c	/^void rdl_reset(RdlVM *vm){$/;"	f
+rdl_single_eval	rdl.c	/^Result rdl_single_eval(RdlVM *vm, StringView *src){$/;"	f
+rdl_type	rdl.c	/^int rdl_type(RdlVM *vm){$/;"	f
+rdl_upvalue_get_double	rdl.c	/^double rdl_upvalue_get_double(RdlVM *vm, int idx){$/;"	f
+rdl_upvalue_get_foreign	rdl.c	/^void *rdl_upvalue_get_foreign(RdlVM *vm, int idx){$/;"	f
+rdl_upvalue_set_double	rdl.c	/^void rdl_upvalue_set_double(RdlVM *vm, int idx, double value){$/;"	f
+rdl_upvalue_set_null	rdl.c	/^void rdl_upvalue_set_null(RdlVM *vm, int idx){$/;"	f
+register_fn	rdl.c	/^void register_fn(RdlVM *vm, const char *name, offset_t offset){$/;"	f
+register_variable	rdl_eval.c	/^void register_variable(RdlVM *vm, const char *name){$/;"	f
+release_upvalue	rdl_eval.c	/^static void release_upvalue(Upvalue *uv){$/;"	f	file:
+reset_variables	rdl_eval.c	/^void reset_variables(RdlVM *vm, int idx){$/;"	f
+restore_state	rdl_eval.c	/^void restore_state(RdlVM *vm){$/;"	f
+result_print	rdl_eval.c	/^void result_print(Result res) {$/;"	f
+result_type	rdl_eval.c	/^const char *result_type(Result result){$/;"	f
+retrive_variable	rdl_eval.c	/^void retrive_variable(RdlVM *vm, const char *name){$/;"	f
+run	rdlTest.c	/^   bool (*run)(struct command *self, const char *const prg_name, int *argc, const char **argv);$/;"	m	struct:command	file:
+run_next_command	rdlTest.c	/^bool run_next_command(const char *const prg_name, int *argc, const char **argv)$/;"	f
+run_rdl_file	rdlTest.c	/^bool run_rdl_file(struct command *self, const char *const prg_name, int *argc, const char **argv)$/;"	f
+save_state	rdl_eval.c	/^void save_state(RdlVM *vm){$/;"	f
+set_out_path	rdlTest.c	/^bool set_out_path(struct command *self, const char *const prg_name, int *argc, const char **argv)$/;"	f
+shift	rdlTest.c	/^#define shift(/;"	d	file:
+signature	rdlTest.c	/^   const char *const signature;$/;"	m	struct:command	file:
+slot	rdl_compile.c	/^   int slot;$/;"	m	struct:variable	file:
+stack	rdl.c	/^static OperationStack stack = {$/;"	v	file:
+stack_eval	rdl_eval.c	/^bool stack_eval(RdlVM *vm, const OperationStack stack){$/;"	f
+stack_offset	rdl_compile.c	/^   int stack_offset;     \/\/ keeping track of where the var is on the stack$/;"	m	struct:FnState	file:
+stack_print	rdl_compile.c	/^void stack_print(const OperationStack stack){$/;"	f
+template_state	parser.c	/^} template_state = TEMPLATE_NONE;$/;"	v	typeref:enum:__anon5
+token_cc	rdl_compile.c	/^const char *token_cc(TOKEN_KIND kind) {$/;"	f
+top_fs	rdl_compile.c	/^static struct FnState top_fs;$/;"	v	typeref:struct:FnState	file:
+upvalue_ref	rdl_eval.c	/^Result *upvalue_ref(RdlVM *vm, int idx){$/;"	f
+variable	rdl_compile.c	/^struct variable {$/;"	s	file:
+write_result	rdlTest.c	/^static void write_result(Result res) {$/;"	f	file:

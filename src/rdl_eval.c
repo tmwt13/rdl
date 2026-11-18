@@ -1,3 +1,29 @@
+/* RdlVM 
+ * 
+ *
+ *
+ * Function Calls
+ *    Push Fn_Name      -> [ name ]
+ *    GETVAR            -> [ {fn} ]
+ *    FN                -> [ {fn}, ab, pc, bp ]
+ *    PUSHREL -4        -> [ {fn}, ab, pc, bp, {FN} ]
+ *    Push arg1         -> [ {fn}, ab, pc, bp, {FN}, arg1 ]
+ *    Push arg2         -> [ {fn}, ab, pc, bp, {FN}, arg1, arg2 ]
+ *    CALL              -> [ {fn}, ab, pc, bp, {FN}, arg1, arg2 ]
+ *       - save state
+ *       A) C-Function
+ *          call entry
+ *          - restore state
+ *       B) native
+ *          shift pc
+ *
+ *    ...               -> [ {fn}, ab, pc, bp, {FN}, arg1, arg2, a, b, c, d ]
+ *    RET               -> [ d ]
+ *
+ *
+ */
+
+
 #define HT_PUBDEF static
 
 #include "rdl.h"
@@ -21,10 +47,14 @@ void        free_object_payload(Object *obj);
 
 Result      buildinstance(RdlVM *vm, const char *class_name, int size);
 Result      buildmethod(RdlVM *vm, const char *class_name, const char *method_name);
-Result      buildfunction(RdlVM *vm, const char *class_name, const char *method_name);
+Result      buildfunction(RdlVM *vm);
 Result      buildstring(RdlVM *vm, const char *cc);
+
 // Evaluating
 bool        operation_eval(RdlVM *vm, Operation op);
+
+/* Evalaute an OperationStack until returned in top level
+ */
 bool        stack_eval(RdlVM *vm, const OperationStack stack);
 
 void              _invoke_native(RdlVM *vm, const RdlNativeEntry *e);
@@ -46,86 +76,35 @@ extern void    register_fn(RdlVM *vm, const char *name, offset_t offset);
  *  Implementation
  * ------------------------- */ 
 // the running operation stream; OpCLOSURE reads its OpUPDESC operands from it
-static const Operation *g_ops;
 
 bool stack_eval(RdlVM *vm, const OperationStack stack){
-   g_ops = stack.data;
    while(operation_eval(vm, stack.data[vm->pc]));
-
    return true;
 }
 
-// ---- Upvalues (see Upvalue in rdl.h) ----
-static Upvalue *capture_upvalue(RdlVM *vm, int slot){
-   Upvalue *prev = NULL, *uv = vm->open_upvalues;
-   while(uv && uv->slot > slot){
-      prev = uv;
-      uv = uv->next_open;
-   }
-   if(uv && uv->slot == slot) return uv; // already captured: share it
-
-   Upvalue *created = calloc(1, sizeof(Upvalue));
-   created->open = true;
-   created->slot = slot;
-   created->next_open = uv;
-   if(prev) prev->next_open = created;
-   else vm->open_upvalues = created;
-   return created;
-}
-
-// the slots >= from are about to disappear: move their values into the upvalues
-static void close_upvalues(RdlVM *vm, int from){
-   Upvalue *uv;
-   // for every upvalue after the slot until to be cleared
-   while(vm->open_upvalues && vm->open_upvalues->slot >= from){
-      // close upvalue:
-      //    get uv (linked list)
-      uv = vm->open_upvalues;
-      vm->open_upvalues = uv->next_open;
-      //    set closed
-      uv->open = false;
-      //    store state localy
-      uv->closed = vm->data[uv->slot];
-      //    detach
-      uv->next_open = NULL;
-      if(uv->refcount == 0) free(uv); // no closure left that could see it
-   }
-}
-
-static void release_upvalue(Upvalue *uv){
-   // an open upvalue stays alive until close_upvalues() unlinks it
-   if(--uv->refcount <= 0 && !uv->open) free(uv);
-}
-
-extern Result *upvalue_ref(RdlVM *vm, int idx);
-Result *upvalue_ref(RdlVM *vm, int idx){
-   if(vm->cl.kind != RESULT_OBJECT || vm->cl.object->kind != OBJ_CLOSURE)
-      ERROR("upvalue access outside of a closure");
-   Object *closure = vm->cl.object;
-   if(idx < 0 || idx >= closure->as.closure.count) ERROR("bad upvalue %d", idx);
-   Upvalue *uv = closure->as.closure.upvalues[idx];
-   return uv->open ? &vm->data[uv->slot] : &uv->closed;
-}
-
-Result buildclosure(RdlVM *vm, offset_t start, int up_count){
-   Object *obj = new_object(vm);
-   obj->kind = OBJ_CLOSURE;
-   obj->class_name = "Closure";
-   obj->as.closure.start = start;
-   obj->as.closure.native = NULL;
-   obj->as.closure.count = up_count;
-   obj->as.closure.upvalues = up_count ? calloc(up_count, sizeof(Upvalue *)) : NULL;
-   return (Result){.kind = RESULT_OBJECT, .object = obj};
-}
+/* ------------------------- *
+ *  Function-Calls
+ * ------------------------- */ 
+/* Save:
+ *    -4: ab
+ *    -3: lb
+ *    -2: pc
+ *    -1: bp
+ */
+#define AB_OFFSET -4
+#define LB_OFFSET -3
+#define PC_OFFSET -2
+#define BP_OFFSET -1
 
 #define STORE(vm, _val) push(vm, ((Result){.kind = RESULT_INT, .integer = _val}))
 void save_state(RdlVM *vm){
-   STORE(vm, vm->pc + 1);
-   push(vm, vm->cl);
-   STORE(vm, vm->lb);
    STORE(vm, vm->ab);
+   STORE(vm, vm->lb);
+   STORE(vm, vm->pc + 1);
    STORE(vm, vm->bp);
+   // update ArgBasePtr
    vm->ab = vm->sp;
+   // bp gets filled back at OpCALL
 }
 
 #define RESTORE(vm, _val) ((_val) = pop(vm).integer)
@@ -133,10 +112,16 @@ void restore_state(RdlVM *vm){
    // reset sp
    vm->sp = vm->bp;
    RESTORE(vm, vm->bp);
-   RESTORE(vm, vm->ab);
-   RESTORE(vm, vm->lb);
-   vm->cl = pop(vm);
    RESTORE(vm, vm->pc);
+   RESTORE(vm, vm->lb);
+   RESTORE(vm, vm->ab);
+}
+
+Result buildfunction(RdlVM *vm){
+   Object *obj = new_object(vm);
+   obj->kind = OBJ_FUNCTION;
+   obj->class_name = "Function";
+   return (Result){.kind = RESULT_OBJECT, .object = obj};
 }
 
 #define REQUIRES_ARGS(n)
@@ -161,67 +146,21 @@ bool operation_eval(RdlVM *vm, Operation op){
          save_state(vm);
       } break;
       case OpCALL: {
-         // CALL Stack:
-         // -9: ab
-         // -8: fn
-         // -7: obj
-         // -6: arg1     -> vm->bp - 2 - 1 - argc + 1
-         // -4: arg2
-         // -3: NULL
-         // -2: PC
-         // -1: BP
-         // 0: ->SP
-         REQUIRES_ARGS(1);
-         PUSHES_VALUES(2);
-
-         // get bp slot
+         // Fill back BP
          rhs = SLOT_GET(vm, vm->ab-1);
          rhs.integer = vm->bp;
          vm->bp = vm->ab;
          vm->lb = vm->sp;
 
-         // get fn
+         // Get {fn}
          lhs = SLOT_GET(vm, 0); 
+         RdlNativeEntry *entry = NULL;
+         if(lhs.kind != RESULT_OBJECT || lhs.object->kind != OBJ_FUNCTION)
+            ERROR("can not call non fn obj");
 
-         if(lhs.kind == RESULT_OBJECT && lhs.object->kind == OBJ_CLOSURE
-            && lhs.object->as.closure.native){
-            // C closure: frame is [fn, ctx, args...] like a native. slot0 is
-            // the result; the closure is the running one so rdl_upvalue_*
-            // can reach its state.
-            int bp = vm->bp;
-            vm->bp += 1;
-            vm->cl = lhs;
-            SLOT_GET(vm, 0) = (Result){.kind = RESULT_NULL};
-            lhs.object->as.closure.native(vm);
-            temp = pop(vm);
-            vm->bp = bp;
-            restore_state(vm);
-            push(vm, temp);
-            return true;
-         }
-
-         if(lhs.kind == RESULT_OBJECT && lhs.object->kind == OBJ_CLOSURE){
-            temp = (Result){.kind = RESULT_NULL}; // default return value
-            push(vm, temp);
-            vm->cl = lhs;
-            vm->pc = lhs.object->as.closure.start;
-            return true;
-         }
-
-
-         if(lhs.kind != RESULT_FUNCTION){
-            // calling a plain value is a no-op: it just collapses to itself.
-            // this is what lets a bare identifier double as "variable"
-            // (OpIDENT already resolved it to a Result) without the
-            // compiler ever needing to decide up front whether it's a
-            // variable or a function.
-            restore_state(vm);
-            push(vm, lhs);
-            return true;
-         }
-
-         entry = lhs.entry;
-
+         // A) C-Function or B) native RDL function
+         entry = lhs.object->as.function.entry;
+         // A
          if(entry->kind != RDL_STACK){
             _invoke_native(vm, entry);
             // save result;
@@ -234,83 +173,106 @@ bool operation_eval(RdlVM *vm, Operation op){
             return true;
          }
 
-         // RDL_STACK: jump into the function body. Give OpRET a default
-         // NULL to pop even if the body never explicitly pushes a result
-         // (native calls don't need this: _invoke_native always pushes
-         // its own result, and giving every call a phantom extra slot
-         // broke natives like g_tab/g_log that infer arg count from
-         // vm->sp - vm->bp).
+         // B) Function lives on stack 
+
+         vm->pc = (offset_t)entry->as.offset;
+         //    load stack data if available
+         if(lhs.object->as.function.data){
+            memcpy(vm->data+vm->sp, lhs.object->as.function.data, lhs.object.as.function.dcount);
+            vm->sp += lhs.object.as.function.dcount;
+
+            // pop pc
+            rhs = pop(vm);
+            if(rhs.kind != RESULT_INTEGER) ERROR("expected pc at end of stack data");
+            vm->pc = rhs.integer;
+            // TODO: rewind locals
+         }
+
+         //    push NULL as safety
          temp = (Result){.kind = RESULT_NULL};
          push(vm, temp);
 
          vm->cl = (Result){.kind = RESULT_NULL};
-         vm->pc = (offset_t)entry->as.offset;
 
          return true;
       }
-      case OpSETVAR:
+      case OpYIELD:
       {
-         lhs = pop(vm);
-         if(lhs.kind != RESULT_NUMBER) ERROR("expected fn start idx");
-         register_fn(vm, op.as.text, (int)lhs.number);
-      } break;
-      case OpGETVAR:
-      {
-         RdlNativeEntry *entry = {0};
-
-         entry = _get_entry(
-               vm,
-               "Global",
-               op.as.text);
-
-         if(entry == NULL) ERROR("could not find function %s", op.as.text);
-         lhs = (Result){.kind = RESULT_FUNCTION, .entry = entry};
-         push(vm, lhs);
-      } break;
-      case OpRET:
-         // CALL Stack:
-         // 0: BP
-         // 1: fn
-         // 2: arg1     -> vm->bp - 2 - 1 - argc + 1
-         // 3: arg2
-         // 4: argc = 3
-         // 5: PC
-         // 6: BP
-         // 7: ->SP
          if(vm->bp == 0) {
             INFO("bp = 0");
             return false;
          }
-         REQUIRES_ARGS(1);
-         PUSHES_VALUES(1);
-         // save result
+
+         // Save result
          if(vm->sp - vm->bp == 0) {
             lhs = (Result){.kind = RESULT_NULL};
          } else {
             lhs = pop(vm);
          }
-         // locals of this frame die now: closures keep what they captured
-         close_upvalues(vm, vm->bp);
+
+         // unwind locals
+         unwind_locals(vm);
+         
+         // Store Stack 
+         //    push pc
+         rhs = (Result){.kind = RESULT_INTEGER, .integer = vm->pc+1};
+         push(vm, rhs);
+         //    save stack state
+         Result fn = vm->data[vm->bp];
+         if(fn.kind != RESULT_OBJECT || fn.object->kind != OBJECT_CLOSURE)
+            ERROR("cannot yield non local function");
+         int local_stack_size = vm->sp - vm->bp;
+         fn.object->as.function.data = calloc(local_stack_size, sizeof(Result));
+         fn.object->as.function.dcount = local_stack_size;
+         memcpy(fn.object->as.function.data, vm->data+vm->bp, local_stack_size);
+         
          // restore state
          restore_state(vm);
          // push result
          push(vm, lhs);
          return true;
+      } break;
+      case OpSETVAR:
+      {
+         lhs = pop(vm);
+         if(lhs.kind != RESULT_NUMBER) ERROR("expected fn start idx");
+         set_variable(vm, op.as.text, lhs);
+      } break;
+      case OpGETVAR:
+      {
+         if(!get_variable(vm, op.as.text)) return false;
+      } break;
+      case OpRET:
+         if(vm->bp == 0) {
+            INFO("bp = 0");
+            return false;
+         }
+         
+         // Save result
+         if(vm->sp - vm->lb == 0) {
+            lhs = (Result){.kind = RESULT_NULL};
+         } else {
+            lhs = pop(vm);
+         }
+
+         unwind_locals(vm);
+         restore_state(vm);
+
+         push(vm, lhs);
+         return true;
       case OpDOLAR:
-         REQUIRES_ARGS(1);
-         PUSHES_VALUES(1);
          lhs = pop(vm);
 
          if(lhs.kind != RESULT_NUMBER) ERROR("expected Number for dolar");
          int idx = (int)lhs.number;
 
-         if(idx > vm->sp-vm->bp) 
+         if(idx > vm->sp - vm->bp) 
             ERROR("to few args (argc = %d < %d)", vm->sp-vm->bp-2, idx);
 
-         push(vm, vm->data[vm->bp+idx+1]); // fn, obj, args...
+         push(vm, vm->data[vm->ab+idx+1]); // fn, args...
          break;
       case OpECHO:
-         if(vm->sp <= vm->bp + op.as.idx) break; // statement left no value
+         if(vm->sp <= vm->lb + op.as.idx) break; // statement left no value
          lhs = pop(vm);
          if(lhs.kind == RESULT_NULL || lhs.kind == RESULT_VOID) break;
          vm->echo_fn(lhs);
@@ -346,32 +308,15 @@ bool operation_eval(RdlVM *vm, Operation op){
          push(vm,lhs);
          break;
       case OpIDENT:
-         // resolve a bare identifier: local variable (push its value
-         // directly), else a deferred Global.<name> reference that the
-         // surrounding call-convention will either invoke or collapse.
-         PUSHES_VALUES(1);
-         {
-            bool found = false;
-            for(int i = vm->variables_count-1; i>=0; --i){
-               if(!strcmp(vm->variables[i].name, op.as.text)){
-                  push(vm, vm->data[vm->variables[i].slot]);
-                  found = true;
-                  break;
-               }
-            }
-            if(!found){
-               lhs = buildmethod(vm, "Global", op.as.text);
-               push(vm, lhs);
-            }
-         }
-         break;
+      {
+         lhs = buildmethod(vm, "Global", op.as.text);
+         push(vm, lhs);
+      } break;
       case OpTXT:
-         PUSHES_VALUES(1);
          lhs = buildstring(vm, op.as.text);
          push(vm, lhs);
          break;
       case OpCTXPUSH:
-         PUSHES_VALUES(1);
          stf_da_append(&vm->context, pop(vm));
          break;
       case OpCTXPOP:
@@ -387,23 +332,12 @@ bool operation_eval(RdlVM *vm, Operation op){
           stf_da_append(vm,vm->register_a);
          break;
       case OpSWAP:
-         REQUIRES_ARGS(2);
-         PUSHES_VALUES(2);
          rhs = pop(vm);
          lhs = pop(vm);
          push(vm, rhs);
          push(vm, lhs);
          break;
       case OpDOT:
-         // pop the receiver; the method/field name is baked into this
-         // operation (op.as.text), not resolved via OpIDENT - "add" in
-         // (5).add(2) must not be looked up as a global.
-         // pop lhs 
-         // get entry
-         // push fn entry
-         // push lhs
-         REQUIRES_ARGS(1);
-         PUSHES_VALUES(2);
          RdlNativeEntry *entry = {0};
 
          lhs = pop(vm); // receiver
@@ -415,19 +349,18 @@ bool operation_eval(RdlVM *vm, Operation op){
 
          if(entry == NULL) ERROR("could not find method");
 
-         rhs = (Result){.kind = RESULT_FUNCTION, .entry = entry};
+         rhs = buildfunction(vm);
+         rhs.object->as.function.entry = *entry;
          push(vm, rhs); // fn
          push(vm, lhs); // receiver, preserved so the call can read it as arg0
          break;
       case OpCTX:
-         PUSHES_VALUES(1);
          push(vm, stf_da_last(&vm->context));
          break;
       case OpJMP:       
          vm->pc = op.as.ptr;
          return true;
       case OpCONDJMP:   
-         REQUIRES_ARGS(1);
          lhs = pop(vm);
          switch(lhs.kind)
          {
@@ -442,19 +375,16 @@ bool operation_eval(RdlVM *vm, Operation op){
          } 
          break;
       case OpNULL:      
-         PUSHES_VALUES(1);
          lhs = (Result){.kind = RESULT_NULL};
          push(vm, lhs);
          break;
       case OpPUSHIDX:
-         PUSHES_VALUES(1);
          if(op.as.idx >= vm->sp)
             ERROR("tried to read outside Stack %d > %d", op.as.idx, vm->sp-1);
          lhs = vm->data[op.as.idx];
          push(vm, lhs);
          break;
       case OpPUSHREL:
-         PUSHES_VALUES(1);
          if(vm->sp + op.as.offset >= vm->sp || vm->sp + op.as.offset < 0)
             ERROR("tried to read outside Stack %d > %d", vm->sp + op.as.offset, vm->sp-1);
          lhs = vm->data[vm->sp + op.as.offset];
@@ -462,7 +392,6 @@ bool operation_eval(RdlVM *vm, Operation op){
          break;
       case OpGETLOCAL:
       {
-         PUSHES_VALUES(1);
          if(vm->lb + op.as.offset >= vm->sp || vm->lb + op.as.offset < 0)
             ERROR("tried to read outside Stack %d > %d", vm->lb + op.as.offset, vm->sp-1);
          lhs = vm->data[vm->lb + op.as.offset];
@@ -477,12 +406,13 @@ bool operation_eval(RdlVM *vm, Operation op){
          break;
       } break;
       case OpCLOSURE: {
-         lhs = buildclosure(vm, op.as.ptr, 0);
+         lhs = buildfunction(vm);
+         lhs.object->as.function.entry.kind = RDL_STACK;
+         lhs.object->as.function.entry.as.offset = op.as.ptr;
+         lhs.object->as.function.count = 0;
          push(vm, lhs);
       } break;
       case OpDUP:
-         REQUIRES_ARGS(1);
-         PUSHES_VALUES(1);
          lhs = stf_da_last(vm);
          push(vm, lhs);
          break;
@@ -610,67 +540,6 @@ void _invoke_native(RdlVM *vm, const RdlNativeEntry *e) {
    vm->bp = bp;
 }
 
-/*
-void _where_iterator_step(RdlVM *vm){
-	WhereIterator *iterator = (WhereIterator*)rdl_slot_get_foreign(vm, 0);
-	if(rdl_slot_get_type(vm, 1) == RESULT_NULL){
-		const char *class_name = result_type(iterator->obj);
-		iterator->iterator_step = *_get_entry(vm, class_name, "iteratorStep(1)");
-		iterator->iterator_value = *_get_entry(vm, class_name, "iteratorValue(1)");
-		iterator->result = SLOT_GET(vm, 1);
-	}
-
-	Result value, condition;
-   value = (Result){.kind = RESULT_VOID};
-
-   push(vm, value); 
-   Result *value_slot = vm->data+vm->count-1;
-
-	do{
-      rdl_scope(vm){
-
-         push(vm, iterator->obj);
-         push(vm, iterator->result);
-         _invoke_native(vm, &iterator->iterator_step);
-         iterator->result = pop(vm);
-
-         if(iterator->result.kind != RESULT_NULL) {
-            rdl_scope(vm) {
-               push(vm, iterator->obj);
-               push(vm, iterator->result);
-               _invoke_native(vm, &iterator->iterator_value);
-               *value_slot = pop(vm);
-            }
-
-            stf_da_append(&vm->context, *value_slot);
-            rdl_scope(vm){
-               stack_eval(vm, iterator->condition);
-               condition = pop(vm);
-               if(condition.kind != RESULT_NUMBER && condition.kind != RESULT_NULL) 
-                  ERROR("where expected number or null");	
-            }
-            stf_da_pop(&vm->context);		
-
-         } else {
-            *value_slot = iterator->result;
-         }
-      }
-	} while(
-		iterator->result.kind != RESULT_NULL && !(condition.number)
-	);
-
-   // value_slot allready on top
-}
-*/
-
-/*
-void _where_iterator_value(RdlVM *vm){
-	result_print(SLOT_GET(vm, 0));
-	result_print(SLOT_GET(vm, 1));
-	SLOT_GET(vm, 0) = SLOT_GET(vm, 1);
-}
-*/
-
 Result buildstring(RdlVM *vm, const char *cc){
    Object *obj;
 
@@ -738,7 +607,7 @@ bool instance_cmp(const Object lhs, const Object rhs){
    }
    TODO("Instance CMP");
 }
-
+// --------- HERE
 void free_object_payload(Object *obj){
    switch(obj->kind){
       case OBJ_TEXT:
@@ -756,9 +625,9 @@ void free_object_payload(Object *obj){
          stf_da_free(&obj->as.list);
          break;
       case OBJ_CLOSURE:
-         for(int i = 0; i < obj->as.closure.count; ++i)
-            release_upvalue(obj->as.closure.upvalues[i]);
-         free(obj->as.closure.upvalues);
+         for(int i = 0; i < obj->as.function.count; ++i)
+            release_upvalue(obj->as.function.upvalues[i]);
+         free(obj->as.function.upvalues);
          break;
    }
 }
@@ -777,8 +646,8 @@ static void gc_mark(Result r){
 
    if(obj->kind == OBJ_CLOSURE){
       // open upvalues point at stack slots (already roots); closed ones own their value
-      for(int i = 0; i < obj->as.closure.count; ++i){
-         if(!obj->as.closure.upvalues[i]->open) gc_mark(obj->as.closure.upvalues[i]->closed);
+      for(int i = 0; i < obj->as.function.count; ++i){
+         if(!obj->as.function.upvalues[i]->open) gc_mark(obj->as.function.upvalues[i]->closed);
       }
    }
 }
@@ -834,16 +703,15 @@ void register_variable(RdlVM *vm, const char *name){
    var_reg->slot = slot;
 }
 
-void reset_variables(RdlVM *vm, int idx){
+void reset_variables(RdlVM *vm, int from){
    VariableItem *item;
 
-   if(vm->variables_count < idx || idx < 0) return;
-   while(vm->variables_count > 0 && vm->variables_count > idx){
+   if(vm->variables_count == 0) return;
+   while(vm->variables_count > 0 && vm->variables[vm->variables_count].slot >= idx){
       --vm->variables_count;
       item = vm->variables+vm->variables_count;
       free(item->name);
    }
-
 }
 
 void retrive_variable(RdlVM *vm, const char *name){
@@ -858,3 +726,70 @@ void retrive_variable(RdlVM *vm, const char *name){
    push(vm, obj);
 }
 
+/* ------------------------- *
+ *  Upvalues
+ * ------------------------- */ 
+static Upvalue *capture_upvalue(RdlVM *vm, int slot){
+   Upvalue *prev = NULL, *uv = vm->open_upvalues;
+   while(uv && uv->slot > slot){
+      prev = uv;
+      uv = uv->next_open;
+   }
+   if(uv && uv->slot == slot) return uv; // already captured: share it
+
+   Upvalue *created = calloc(1, sizeof(Upvalue));
+   created->open = true;
+   created->slot = slot;
+   created->next_open = uv;
+   if(prev) prev->next_open = created;
+   else vm->open_upvalues = created;
+   return created;
+}
+
+// the slots >= from are about to disappear: move their values into the upvalues
+static void close_upvalues(RdlVM *vm, int from){
+   Upvalue *uv;
+   // for every upvalue after the slot until to be cleared
+   while(vm->open_upvalues && vm->open_upvalues->slot >= from){
+      // close upvalue:
+      //    get uv (linked list)
+      uv = vm->open_upvalues;
+      vm->open_upvalues = uv->next_open;
+      //    set closed
+      uv->open = false;
+      //    store state localy
+      uv->closed = vm->data[uv->slot];
+      //    detach
+      uv->next_open = NULL;
+      if(uv->refcount == 0) free(uv); // no closure left that could see it
+   }
+}
+
+static void release_upvalue(Upvalue *uv){
+   // an open upvalue stays alive until close_upvalues() unlinks it
+   if(--uv->refcount <= 0 && !uv->open) free(uv);
+}
+
+extern Result *upvalue_ref(RdlVM *vm, int idx);
+Result *upvalue_ref(RdlVM *vm, int idx){
+   if(vm->cl.kind != RESULT_OBJECT || vm->cl.object->kind != OBJ_CLOSURE)
+      ERROR("upvalue access outside of a closure");
+   Object *function = vm->cl.object;
+   if(idx < 0 || idx >= function->as.function.count) ERROR("bad upvalue %d", idx);
+   Upvalue *uv = function->as.function.upvalues[idx];
+   return uv->open ? &vm->data[uv->slot] : &uv->closed;
+}
+
+bool get_variable(RdlVM *vm, const char *name)
+{
+   RdlNativeEntry *entry = {0};
+
+   entry = _get_entry(
+         vm,
+         "Global",
+         op.as.text);
+
+   if(entry == NULL) ERROR("could not find function %s", op.as.text);
+   lhs = (Result){.kind = RESULT_FUNCTION, .entry = entry};
+   push(vm, lhs);
+}
